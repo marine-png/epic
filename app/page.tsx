@@ -121,47 +121,51 @@ export default function Home() {
       </section>
 
       {/* Pôles détaillés */}
-      <section className="bg-[#07111f]">
+      <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-4">
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#C9A96E] mb-3">Nos expertises</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Nos domaines d&apos;expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c]">Nos domaines d&apos;expertise</h2>
         </div>
-        <div className="max-w-7xl mx-auto px-6 pb-20 mt-10 flex flex-col gap-0 divide-y divide-white/5">
+        <div className="max-w-7xl mx-auto px-6 pb-20 mt-10 flex flex-col gap-0 divide-y divide-gray-100">
           {poles.map((pole) => (
             <Link
               key={pole.href}
               href={pole.href}
               className="group flex flex-col md:flex-row md:items-center gap-6 py-8 transition-all duration-300 hover:pl-4"
             >
-              {/* Numéro + barre colorée */}
+              {/* Icône + barre colorée */}
               <div className="flex items-center gap-4 md:w-48 flex-shrink-0">
                 <div className="w-1 h-12 rounded-full flex-shrink-0 transition-all duration-300 group-hover:h-16" style={{ backgroundColor: pole.color }} />
-                <span className="text-4xl font-black text-white/10 group-hover:text-white/20 transition-colors select-none">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style={{ backgroundColor: pole.lightColor }}>
                   {pole.icon}
-                </span>
+                </div>
               </div>
 
               {/* Titre */}
-              <div className="md:w-56 flex-shrink-0">
-                <h3 className="text-2xl font-bold text-white group-hover:opacity-90 transition-opacity" style={{ color: 'white' }}>
+              <div className="md:w-48 flex-shrink-0">
+                <h3 className="text-2xl font-bold transition-opacity" style={{ color: pole.color }}>
                   {pole.label}
                 </h3>
-                <span className="text-xs font-semibold tracking-widest uppercase mt-1 block" style={{ color: pole.color }}>
-                  {pole.services.length} services
-                </span>
               </div>
 
               {/* Services */}
               <div className="flex-1 flex flex-wrap gap-2">
                 {pole.services.map((s) => (
-                  <span key={s} className="text-xs text-white/50 group-hover:text-white/70 border border-white/10 group-hover:border-white/20 px-3 py-1.5 rounded-full transition-all duration-300">
+                  <span
+                    key={s}
+                    className="text-xs font-medium px-3 py-1.5 rounded-full border transition-all duration-300"
+                    style={{ color: pole.color, borderColor: pole.color + '40', backgroundColor: pole.lightColor }}
+                  >
                     {s}
                   </span>
                 ))}
               </div>
 
               {/* Flèche */}
-              <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/10 group-hover:border-white/30 flex items-center justify-center text-white/30 group-hover:text-white/80 transition-all duration-300 group-hover:translate-x-1">
+              <div
+                className="flex-shrink-0 w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 group-hover:translate-x-1"
+                style={{ borderColor: pole.color + '40', color: pole.color }}
+              >
                 →
               </div>
             </Link>
