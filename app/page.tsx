@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from './components/SparklesCore';
+import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
 
 const poles = [
   {
@@ -138,20 +139,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Cartes pôles droite */}
-          <div className="flex flex-col gap-4">
-            {poles.map((pole) => (
-              <Link key={pole.href} href={pole.href} className="group flex items-center gap-5 p-5 rounded-xl border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0" style={{ backgroundColor: pole.lightColor + '22', border: `1px solid ${pole.color}55` }}>
-                  {pole.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-white mb-1">{pole.label}</p>
-                  <p className="text-xs text-white/50 truncate">{pole.services[0]}</p>
-                </div>
-                <span className="text-white/30 group-hover:text-[#C9A96E] transition-colors text-xl">→</span>
-              </Link>
-            ))}
+          {/* Orbital droite */}
+          <div className="flex items-center justify-center">
+            <RadialOrbitalTimeline />
           </div>
         </div>
       </section>
