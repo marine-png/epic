@@ -83,7 +83,7 @@ export function FeatureCarousel() {
           </div>
 
           {/* Labels animés */}
-          <div className="relative flex-1 flex items-center justify-start overflow-hidden px-8 md:px-12 -mt-16">
+          <div className="relative flex-1 flex items-center justify-start overflow-hidden px-8 md:px-12 -mt-4">
             <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0f1e3c] to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0f1e3c] to-transparent z-10 pointer-events-none" />
             <div className="relative w-full h-full flex items-center z-20">
