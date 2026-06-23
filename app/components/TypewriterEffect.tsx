@@ -36,7 +36,7 @@ export const TypewriterEffect = ({
               <motion.span
                 key={i}
                 initial={{ opacity: 0, display: 'none' }}
-                className={cn('text-white opacity-0 hidden', word.className)}
+                className={cn('text-[#0f1e3c] opacity-0 hidden', word.className)}
               >
                 {char}
               </motion.span>
