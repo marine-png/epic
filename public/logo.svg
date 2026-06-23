@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer dashed ring -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#1B3A6B" stroke-width="2" stroke-dasharray="8 4"/>
+  <!-- Inner solid rings -->
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#1B3A6B" stroke-width="6"/>
+  <circle cx="100" cy="100" r="68" fill="none" stroke="#1B3A6B" stroke-width="2"/>
+  <!-- White fill -->
+  <circle cx="100" cy="100" r="63" fill="white"/>
+  <!-- Sun rays -->
+  <g stroke="#1a1a1a" stroke-width="1.2" opacity="0.7">
+    <line x1="100" y1="55" x2="100" y2="42"/>
+    <line x1="115" y1="57" x2="121" y2="45"/>
+    <line x1="128" y1="64" x2="137" y2="55"/>
+    <line x1="136" y1="76" x2="148" y2="70"/>
+    <line x1="85" y1="57" x2="79" y2="45"/>
+    <line x1="72" y1="64" x2="63" y2="55"/>
+    <line x1="64" y1="76" x2="52" y2="70"/>
+    <line x1="108" y1="55" x2="112" y2="44"/>
+    <line x1="92" y1="55" x2="88" y2="44"/>
+    <line x1="120" y1="60" x2="126" y2="50"/>
+    <line x1="80" y1="60" x2="74" y2="50"/>
+  </g>
+  <!-- Sun -->
+  <circle cx="100" cy="75" r="16" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <!-- Mountains -->
+  <polygon points="68,135 100,80 132,135" fill="#1a1a1a"/>
+  <polygon points="100,135 125,95 150,135" fill="#1a1a1a" opacity="0.85"/>
+  <polygon points="50,135 72,105 92,135" fill="#1a1a1a" opacity="0.7"/>
+  <!-- Cardinal arrows - gold -->
+  <!-- North -->
+  <polygon points="100,10 93,32 107,32" fill="#C9A96E"/>
+  <!-- South -->
+  <polygon points="100,190 93,168 107,168" fill="#C9A96E"/>
+  <!-- West -->
+  <polygon points="10,100 32,93 32,107" fill="#C9A96E"/>
+  <!-- East -->
+  <polygon points="190,100 168,93 168,107" fill="#C9A96E"/>
+  <!-- Labels -->
+  <text x="100" y="8" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#1a1a1a">P</text>
+  <text x="100" y="198" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#1a1a1a">C</text>
+  <text x="8" y="104" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#1a1a1a">E</text>
+  <text x="193" y="104" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#1a1a1a">I</text>
+</svg>
