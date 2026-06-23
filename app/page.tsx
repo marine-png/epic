@@ -78,7 +78,7 @@ function AnimatedHeroTitle() {
   }, [index]);
 
   return (
-    <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+    <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 uppercase">
       <span className="block">Vos conseillers en</span>
       <span className="relative block h-[1.2em] overflow-hidden">
         {poleWords.map((p, i) => (
