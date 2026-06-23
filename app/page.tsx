@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from './components/SparklesCore';
 import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
+import { BackgroundCirclesHero } from './components/BackgroundCirclesHero';
 import { FeatureGrid } from './components/FeatureGrid';
 import { FeatureCarousel } from './components/FeatureCarousel';
 import { TypewriterEffect } from './components/TypewriterEffect';
@@ -102,54 +103,8 @@ function AnimatedHeroTitle() {
 export default function Home() {
   return (
     <>
-      {/* Hero Sparkles — galaxie plein écran */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden" style={{ background: '#020817' }}>
-        <SparklesCore
-          className="absolute inset-0 w-full h-full"
-          background="#020817"
-          particleColor="#ffffff"
-          particleDensity={180}
-          minSize={0.4}
-          maxSize={1.2}
-          speed={0.5}
-        />
-        {/* Lueur bleue horizon */}
-        <div className="absolute bottom-0 left-0 right-0 h-72 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(59,130,246,0.3) 0%, transparent 70%)',
-        }} />
-        <div className="absolute pointer-events-none" style={{
-          bottom: '28%', left: '10%', right: '10%', height: '1px',
-          background: 'linear-gradient(90deg, transparent, rgba(99,179,255,0.5) 25%, rgba(186,230,255,1) 50%, rgba(99,179,255,0.5) 75%, transparent)',
-          boxShadow: '0 0 24px 6px rgba(99,179,255,0.35)',
-        }} />
-        <div className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse 90% 70% at 50% 100%, rgba(15,30,80,0.6) 0%, transparent 80%)',
-        }} />
-
-        {/* EPIC centré */}
-        <div className="relative z-10 text-center select-none flex flex-col items-center gap-3">
-          <h1
-            className="font-black text-white"
-            style={{
-              fontSize: 'clamp(5rem, 18vw, 16rem)',
-              lineHeight: 1,
-              letterSpacing: '0.08em',
-              textShadow: '0 0 120px rgba(255,255,255,0.06)',
-            }}
-          >
-            EPIC
-          </h1>
-          <p style={{
-            color: '#C9A96E',
-            fontWeight: 600,
-            letterSpacing: '0.42em',
-            fontSize: 'clamp(0.55rem, 1vw, 0.8rem)',
-            textTransform: 'uppercase',
-          }}>
-            Entreprise · Patrimoine · Immobilier · Conseil
-          </p>
-        </div>
-      </section>
+      {/* Hero — Background Circles */}
+      <BackgroundCirclesHero />
 
       {/* Hero 2 colonnes */}
       <section className="py-20 bg-[#0f1e3c] text-white">
