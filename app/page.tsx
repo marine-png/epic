@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from './components/SparklesCore';
 import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
+import { FeatureGrid } from './components/FeatureGrid';
+import { Globe, BookOpen, Users, Lightbulb } from 'lucide-react';
 
 const poles = [
   {
@@ -210,32 +212,21 @@ export default function Home() {
       </section>
 
       {/* Pourquoi nous choisir */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c] mb-4">Pourquoi nous choisir ?</h2>
-            <div className="w-16 h-1 bg-[#C9A96E] mx-auto" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {atouts.map((a, i) => (
-              <div key={i} className="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm">
-                <div className="w-10 h-10 rounded-full bg-[#1B3A6B] flex items-center justify-center text-white font-bold mb-5 text-sm">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <h3 className="font-bold text-[#0f1e3c] mb-2">{a.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{a.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/a-propos" className="inline-block border-2 border-[#1B3A6B] text-[#1B3A6B] font-semibold px-8 py-3 rounded hover:bg-[#1B3A6B] hover:text-white transition-colors">
-              Rencontrez notre équipe →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <FeatureGrid
+        sectionTitle="Pourquoi nous choisir ?"
+        sectionDescription=""
+        features={[
+          { Icon: Globe, title: 'Expertise pluridisciplinaire', description: 'Une vision globale grâce à nos conseillers en entreprise, patrimoine et immobilier.' },
+          { Icon: BookOpen, title: 'Accompagnement de A à Z', description: "De l'idée à la réalisation, nous vous guidons à chaque étape." },
+          { Icon: Users, title: 'Équipe expérimentée et multilingue', description: 'Un accompagnement adapté aux clients français et internationaux.' },
+          { Icon: Lightbulb, title: 'Approche personnalisée et réactive', description: 'Des solutions sur mesure, adaptées à votre projet.' },
+        ]}
+        footer={
+          <Link href="/a-propos" className="inline-block border-2 border-[#1B3A6B] text-[#1B3A6B] font-semibold px-8 py-3 rounded hover:bg-[#1B3A6B] hover:text-white transition-colors">
+            Rencontrez notre équipe →
+          </Link>
+        }
+      />
 
       {/* Blog / Conseils */}
       <section className="py-24 bg-white">
