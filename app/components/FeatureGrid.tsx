@@ -68,10 +68,12 @@ export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
               <p className="mt-5 text-gray-500 md:text-lg">{sectionDescription}</p>
             )}
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, index) => (
-              <FeatureCard key={index} {...feature} />
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 max-w-4xl w-full">
+              {features.map((feature, index) => (
+                <FeatureCard key={index} {...feature} />
+              ))}
+            </div>
           </div>
           {footer && <div className="text-center mt-12">{footer}</div>}
         </div>
