@@ -1,5 +1,5 @@
 'use client';
-import { useId, useState } from 'react';
+import { useId, useEffect, useState } from 'react';
 import Particles, { ParticlesProvider } from '@tsparticles/react';
 import type { Container } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
@@ -23,9 +23,7 @@ export const SparklesCore = (props: SparklesProps) => {
   const controls = useAnimation();
 
   const particlesLoaded = async (container?: Container) => {
-    if (container) {
-      controls.start({ opacity: 1, transition: { duration: 1 } });
-    }
+    if (container) controls.start({ opacity: 1, transition: { duration: 1.5 } });
   };
 
   return (
@@ -36,37 +34,44 @@ export const SparklesCore = (props: SparklesProps) => {
           className="h-full w-full"
           particlesLoaded={particlesLoaded}
           options={{
-            background: { color: { value: background || '#0f1e3c' } },
+            background: { color: { value: background || '#020817' } },
             fullScreen: { enable: false, zIndex: 1 },
             fpsLimit: 120,
             interactivity: {
-              events: {
-                onClick: { enable: true, mode: 'push' },
-                onHover: { enable: false, mode: 'repulse' },
-              },
-              modes: { push: { quantity: 4 }, repulse: { distance: 200, duration: 0.4 } },
+              events: { onClick: { enable: true, mode: 'push' }, onHover: { enable: false, mode: 'repulse' } },
+              modes: { push: { quantity: 4 } },
             },
             particles: {
-              color: { value: particleColor || '#C9A96E' },
+              color: { value: particleColor || '#ffffff' },
               move: {
                 enable: true,
                 direction: 'none',
-                speed: { min: 0.1, max: speed || 1 },
+                speed: { min: 0.05, max: speed || 0.4 },
                 outModes: { default: 'out' },
-                random: false,
+                random: true,
                 straight: false,
               },
               number: {
                 density: { enable: true, width: 400, height: 400 },
-                value: particleDensity || 120,
+                value: particleDensity || 200,
               },
               opacity: {
-                value: { min: 0.1, max: 1 },
-                animation: { enable: true, speed: speed || 4, sync: false, mode: 'auto', startValue: 'random', destroy: 'none', count: 0, decay: 0, delay: 0 },
+                value: { min: 0.05, max: 0.9 },
+                animation: {
+                  enable: true,
+                  speed: speed || 2,
+                  sync: false,
+                  mode: 'auto',
+                  startValue: 'random',
+                  destroy: 'none',
+                  count: 0,
+                  decay: 0,
+                  delay: 0,
+                },
               },
               shape: { type: 'circle' },
               size: {
-                value: { min: minSize || 1, max: maxSize || 3 },
+                value: { min: minSize || 0.5, max: maxSize || 1.5 },
               },
             },
             detectRetina: true,
