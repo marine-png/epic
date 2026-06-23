@@ -6,6 +6,7 @@ import { SparklesCore } from './components/SparklesCore';
 import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
 import { FeatureGrid } from './components/FeatureGrid';
 import { FeatureCarousel } from './components/FeatureCarousel';
+import { TypewriterEffect } from './components/TypewriterEffect';
 import { Globe, BookOpen, Users, Lightbulb } from 'lucide-react';
 
 const poles = [
@@ -234,18 +235,28 @@ export default function Home() {
         <FeatureCarousel />
       </section>
 
-      {/* CTA final */}
-      <section className="py-24 bg-[#1B3A6B] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{ background: 'radial-gradient(circle at 30% 50%, #C9A96E 0%, transparent 60%)' }} />
-        <div className="relative max-w-3xl mx-auto px-6 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Contactez nos experts pour votre projet en France
-          </h2>
-          <p className="text-white/75 text-lg mb-10 leading-relaxed">
-            Un projet d&apos;entreprise, d&apos;investissement ou de gestion patrimoniale en France ?<br />
-            Notre équipe vous accompagne avec une approche claire et personnalisée.
+      {/* CTA final — Typewriter */}
+      <section className="py-28 bg-[#0f1e3c] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201,169,110,0.08) 0%, transparent 70%)' }} />
+        <div className="relative max-w-4xl mx-auto px-6 text-center flex flex-col items-center gap-8">
+          <p className="text-white/60 text-base md:text-lg tracking-wide">
+            Un projet d&apos;entreprise, d&apos;investissement ou de gestion patrimoniale en France ?
           </p>
-          <Link href="/contact" className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-bold px-10 py-4 rounded hover:bg-[#e8d4a8] transition-colors text-lg">
+          <TypewriterEffect
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+            words={[
+              { text: 'CONTACTEZ' },
+              { text: 'NOS' },
+              { text: 'EXPERTS', className: 'text-[#C9A96E]' },
+              { text: 'POUR' },
+              { text: 'VOTRE' },
+              { text: 'PROJET', className: 'text-[#C9A96E]' },
+            ]}
+          />
+          <Link
+            href="/contact"
+            className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-bold px-10 py-4 rounded hover:bg-[#e8d4a8] transition-colors text-lg mt-2"
+          >
             Nous contacter
           </Link>
         </div>
