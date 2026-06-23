@@ -1,8 +1,8 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { SparklesCore } from './components/SparklesCore';
 
 const poles = [
   {
@@ -97,23 +97,37 @@ function AnimatedHeroTitle() {
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center bg-[#0f1e3c] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f1e3c] via-[#1B3A6B] to-[#0f2347]" />
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10"
-          style={{ background: 'radial-gradient(circle at 80% 50%, #C9A96E 0%, transparent 60%)' }} />
+      {/* Hero Sparkles */}
+      <section className="relative h-[50vh] min-h-[320px] flex items-center justify-center bg-[#0f1e3c] overflow-hidden">
+        <SparklesCore
+          className="absolute inset-0 w-full h-full"
+          background="#0f1e3c"
+          particleColor="#C9A96E"
+          particleDensity={80}
+          minSize={1}
+          maxSize={2.5}
+          speed={1}
+        />
+        <div className="relative z-10 text-center select-none">
+          <h1 className="text-[10rem] md:text-[14rem] font-black tracking-widest text-white" style={{ textShadow: '0 0 60px rgba(201,169,110,0.4)' }}>
+            EPIC
+          </h1>
+          <p className="text-[#C9A96E] text-sm font-semibold tracking-[0.4em] uppercase -mt-4">
+            Entreprise · Patrimoine · Immobilier · Conseil
+          </p>
+        </div>
+      </section>
 
-        <div className="relative max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#C9A96E]" />
-              <span className="text-xs font-medium tracking-widest uppercase text-[#C9A96E]">Entreprise · Patrimoine · Immobilier · Conseil</span>
-            </div>
+      {/* Hero 2 colonnes */}
+      <section className="py-20 bg-[#0f1e3c] text-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
+          {/* Texte gauche */}
+          <div>
             <AnimatedHeroTitle />
             <p className="text-lg text-white/75 leading-relaxed mb-4">
               Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
             </p>
-            <p className="text-sm text-white/55 mb-10">Nous intervenons partout en France, auprès d&apos;une clientèle nationale et internationale.</p>
+            <p className="text-sm text-white/50 mb-10">Nous intervenons partout en France, auprès d&apos;une clientèle nationale et internationale.</p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" className="bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-4 rounded hover:bg-[#e8d4a8] transition-colors">
                 Nous contacter
@@ -124,15 +138,25 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <Image src="/logo.svg" alt="EPIC" width={320} height={320} className="opacity-90 drop-shadow-2xl" priority />
+          {/* Cartes pôles droite */}
+          <div className="flex flex-col gap-4">
+            {poles.map((pole) => (
+              <Link key={pole.href} href={pole.href} className="group flex items-center gap-5 p-5 rounded-xl border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0" style={{ backgroundColor: pole.lightColor + '22', border: `1px solid ${pole.color}55` }}>
+                  {pole.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-white mb-1">{pole.label}</p>
+                  <p className="text-xs text-white/50 truncate">{pole.services[0]}</p>
+                </div>
+                <span className="text-white/30 group-hover:text-[#C9A96E] transition-colors text-xl">→</span>
+              </Link>
+            ))}
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-white" style={{ clipPath: 'ellipse(60% 100% at 50% 100%)' }} />
       </section>
 
-      {/* Pôles */}
+      {/* Pôles détaillés */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
