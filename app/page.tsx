@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from './components/SparklesCore';
 import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
-import { BackgroundCirclesHero } from './components/BackgroundCirclesHero';
 import { FeatureGrid } from './components/FeatureGrid';
 import { FeatureCarousel } from './components/FeatureCarousel';
 import { TypewriterEffect } from './components/TypewriterEffect';
@@ -103,9 +102,6 @@ function AnimatedHeroTitle() {
 export default function Home() {
   return (
     <>
-      {/* Hero — Background Circles */}
-      <BackgroundCirclesHero />
-
       {/* Hero 2 colonnes */}
       <section className="py-20 bg-[#0f1e3c] text-white">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
