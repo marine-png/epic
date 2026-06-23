@@ -1,5 +1,8 @@
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const poles = [
   {
@@ -55,6 +58,43 @@ const articles = [
   { title: 'Acheter en France', desc: "Réussir votre acquisition immobilière professionnelle.", color: '#C9601A' },
 ];
 
+const poleWords = [
+  { word: 'Entreprise', color: '#C9A96E' },
+  { word: 'Patrimoine', color: '#C9A96E' },
+  { word: 'Immobilier', color: '#C9A96E' },
+];
+
+function AnimatedHeroTitle() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(() => setIndex((i) => (i + 1) % poleWords.length), 2500);
+    return () => clearTimeout(id);
+  }, [index]);
+
+  return (
+    <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+      Vos conseillers en{' '}
+      <span className="relative inline-flex justify-start overflow-hidden" style={{ minWidth: '16ch', verticalAlign: 'bottom' }}>
+        {poleWords.map((p, i) => (
+          <motion.span
+            key={p.word}
+            className="absolute font-bold"
+            style={{ color: p.color }}
+            initial={{ opacity: 0, y: 60 }}
+            transition={{ type: 'spring', stiffness: 60, damping: 14 }}
+            animate={index === i ? { y: 0, opacity: 1 } : { y: index > i ? -60 : 60, opacity: 0 }}
+          >
+            {p.word}
+          </motion.span>
+        ))}
+        <span className="invisible">{poleWords[0].word}</span>
+      </span>
+      <span className="text-[#C9A96E]"> en France</span>
+    </h1>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -70,10 +110,7 @@ export default function Home() {
               <span className="w-2 h-2 rounded-full bg-[#C9A96E]" />
               <span className="text-xs font-medium tracking-widest uppercase text-[#C9A96E]">Entreprise · Patrimoine · Immobilier · Conseil</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Vos conseillers en Entreprise, Patrimoine et Immobilier
-              <span className="text-[#C9A96E]"> en France</span>
-            </h1>
+            <AnimatedHeroTitle />
             <p className="text-lg text-white/75 leading-relaxed mb-4">
               Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
             </p>
