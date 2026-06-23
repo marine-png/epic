@@ -102,29 +102,21 @@ function AnimatedHeroTitle() {
 export default function Home() {
   return (
     <>
-      {/* Hero 2 colonnes */}
-      <section className="py-20 bg-[#0f1e3c] text-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
-          {/* Texte gauche */}
-          <div>
-            <AnimatedHeroTitle />
-            <p className="text-lg text-white/75 leading-relaxed mb-4">
-              Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
-            </p>
-            <p className="text-sm text-white/50 mb-10">Nous intervenons partout en France, auprès d&apos;une clientèle nationale et internationale.</p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-4 rounded hover:bg-[#e8d4a8] transition-colors">
-                Nous contacter
-              </Link>
-              <Link href="/a-propos" className="border border-white/30 text-white font-medium px-8 py-4 rounded hover:bg-white/10 transition-colors">
-                Notre équipe →
-              </Link>
-            </div>
-          </div>
-
-          {/* Orbital droite */}
-          <div className="flex items-center justify-center">
-            <RadialOrbitalTimeline />
+      {/* Hero centré */}
+      <section className="py-28 bg-[#0f1e3c] text-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <AnimatedHeroTitle />
+          <p className="text-lg text-white/75 leading-relaxed mb-4">
+            Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
+          </p>
+          <p className="text-sm text-white/50 mb-10">Nous intervenons partout en France, auprès d&apos;une clientèle nationale et internationale.</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact" className="bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-4 rounded hover:bg-[#e8d4a8] transition-colors">
+              Nous contacter
+            </Link>
+            <Link href="/a-propos" className="border border-white/30 text-white font-medium px-8 py-4 rounded hover:bg-white/10 transition-colors">
+              Notre équipe →
+            </Link>
           </div>
         </div>
       </section>
