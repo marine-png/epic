@@ -23,19 +23,19 @@ const FeatureCard = React.forwardRef<HTMLDivElement, FeatureCardProps>(
       <div
         ref={ref}
         className={cn(
-          'flex flex-col items-start gap-4 p-6 rounded-2xl border border-[#1B3A6B]/10 bg-white/60 shadow-lg backdrop-blur-lg transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#1B3A6B]/30 hover:bg-white/80',
+          'flex flex-col items-start gap-4 p-6 rounded-2xl border border-white/10 bg-white/5 shadow-lg backdrop-blur-lg transition-all duration-300 ease-in-out hover:scale-105 hover:border-white/20 hover:bg-white/10',
           className
         )}
         aria-labelledby={titleId}
       >
-        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-[#1B3A6B]/20 bg-[#EEF3FB]">
-          <Icon className="h-6 w-6 text-[#1B3A6B]" aria-hidden="true" />
+        <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/20 bg-white/10">
+          <Icon className="h-6 w-6 text-[#C9A96E]" aria-hidden="true" />
         </div>
         <div className="flex flex-col">
-          <h3 id={titleId} className="text-lg font-bold leading-none tracking-tight text-[#0f1e3c]">
+          <h3 id={titleId} className="text-lg font-bold leading-none tracking-tight text-white">
             {title}
           </h3>
-          <p className="mt-2 text-sm text-gray-500 leading-relaxed">
+          <p className="mt-2 text-sm text-white/60 leading-relaxed">
             {description}
           </p>
         </div>
@@ -57,10 +57,10 @@ export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
   ({ sectionTitle, sectionDescription, features, className, footer }, ref) => {
     const titleId = React.useId();
     return (
-      <section ref={ref} className={cn('w-full py-20 bg-gray-50', className)} aria-labelledby={titleId}>
+      <section ref={ref} className={cn('w-full py-20 bg-[#0f1e3c]', className)} aria-labelledby={titleId}>
         <div className="container mx-auto px-6 md:px-8">
           <div className="mx-auto max-w-3xl text-center mb-14">
-            <h2 id={titleId} className="text-3xl font-bold tracking-tight text-[#0f1e3c] sm:text-4xl uppercase">
+            <h2 id={titleId} className="text-3xl font-bold tracking-tight text-white sm:text-4xl uppercase">
               {sectionTitle}
             </h2>
             <div className="w-16 h-1 bg-[#C9A96E] mx-auto mt-4" />

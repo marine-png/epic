@@ -184,7 +184,7 @@ export default function Home() {
           { Icon: Lightbulb, title: 'Approche personnalisée et réactive', description: 'Des solutions sur mesure, adaptées à votre projet.' },
         ]}
         footer={
-          <Link href="/a-propos" className="inline-block border-2 border-[#1B3A6B] text-[#1B3A6B] font-semibold px-8 py-3 rounded hover:bg-[#1B3A6B] hover:text-white transition-colors">
+          <Link href="/a-propos" className="inline-block border-2 border-white/30 text-white font-semibold px-8 py-3 rounded hover:bg-white/10 transition-colors">
             Rencontrez notre équipe →
           </Link>
         }
