@@ -74,16 +74,16 @@ export function FeatureCarousel() {
         {/* Panneau gauche — titre + labels */}
         <div className="w-full lg:w-[42%] min-h-[320px] lg:h-full relative z-30 flex flex-col justify-between overflow-hidden bg-[#0f1e3c]">
           {/* Titre */}
-          <div className="px-8 md:px-12 pt-10 pb-4">
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#C9A96E] mb-3">Ressources</p>
+          <div className="px-8 md:px-12 pt-10 pb-2">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#C9A96E] mb-2">NOS ARTICLES</p>
             <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
               Nos conseils pour<br />vos projets en France
             </h2>
-            <div className="w-10 h-0.5 bg-[#C9A96E] mt-4" />
+            <div className="w-10 h-0.5 bg-[#C9A96E] mt-3" />
           </div>
 
           {/* Labels animés */}
-          <div className="relative flex-1 flex items-center justify-start overflow-hidden px-8 md:px-12">
+          <div className="relative flex-1 flex items-center justify-start overflow-hidden px-8 md:px-12 -mt-4">
             <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#0f1e3c] to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0f1e3c] to-transparent z-10 pointer-events-none" />
             <div className="relative w-full h-full flex items-center z-20">
