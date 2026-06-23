@@ -49,7 +49,7 @@ export const TypewriterEffect = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
-        className={cn('inline-block rounded-sm w-[3px] h-8 md:h-10 lg:h-14 bg-[#C9A96E] ml-1 align-middle', cursorClassName)}
+        className={cn('inline-block rounded-sm w-[3px] h-8 md:h-10 lg:h-14 bg-[#1B3A6B] ml-1 align-middle', cursorClassName)}
       />
     </div>
   );

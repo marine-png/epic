@@ -196,14 +196,16 @@ export default function Home() {
       </section>
 
       {/* CTA final — Typewriter */}
-      <section className="py-28 bg-[#0f1e3c] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201,169,110,0.08) 0%, transparent 70%)' }} />
+      <section className="py-28 bg-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="w-2/3 h-0.5 bg-[#C9A96E] mx-auto mb-16" />
+        </div>
         <div className="relative max-w-4xl mx-auto px-6 text-center flex flex-col items-center gap-8">
-          <p className="text-white/60 text-base md:text-lg tracking-wide">
+          <p className="text-[#0f1e3c]/50 text-base md:text-lg tracking-wide">
             Un projet d&apos;entreprise, d&apos;investissement ou de gestion patrimoniale en France ?
           </p>
           <TypewriterEffect
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#0f1e3c]"
             words={[
               { text: 'CONTACTEZ' },
               { text: 'NOS' },
@@ -215,7 +217,7 @@ export default function Home() {
           />
           <Link
             href="/contact"
-            className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-bold px-10 py-4 rounded hover:bg-[#e8d4a8] transition-colors text-lg mt-2"
+            className="inline-block bg-[#1B3A6B] text-white font-bold px-10 py-4 rounded hover:bg-[#0f2347] transition-colors text-lg mt-2"
           >
             Nous contacter
           </Link>
