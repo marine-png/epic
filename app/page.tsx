@@ -7,7 +7,7 @@ import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
 import { FeatureGrid } from './components/FeatureGrid';
 import { FeatureCarousel } from './components/FeatureCarousel';
 import { TypewriterEffect } from './components/TypewriterEffect';
-import { Globe, BookOpen, Users, Lightbulb } from 'lucide-react';
+import { Globe, BookOpen, Users, Lightbulb, Briefcase, TrendingUp, Building2 } from 'lucide-react';
 
 const poles = [
   {
@@ -15,7 +15,7 @@ const poles = [
     label: 'Entreprise',
     color: '#1B3A6B',
     lightColor: '#EEF3FB',
-    icon: '🏢',
+    Icon: Briefcase,
     services: [
       'Analyse de la faisabilité de votre projet',
       'Business plan et prévisionnel financier',
@@ -28,7 +28,7 @@ const poles = [
     label: 'Patrimoine',
     color: '#2D6A4F',
     lightColor: '#EEFAF4',
-    icon: '📊',
+    Icon: TrendingUp,
     services: [
       'Gestion et optimisation de patrimoine',
       'Stratégie fiscale et financière',
@@ -41,7 +41,7 @@ const poles = [
     label: 'Immobilier',
     color: '#C9601A',
     lightColor: '#FDF3EC',
-    icon: '🏠',
+    Icon: Building2,
     services: [
       'Recherche de locaux professionnels',
       'Acquisition de fonds de commerce',
@@ -136,8 +136,8 @@ export default function Home() {
               {/* Icône + barre colorée */}
               <div className="flex items-center gap-4 md:w-48 flex-shrink-0">
                 <div className="w-1 h-12 rounded-full flex-shrink-0 transition-all duration-300 group-hover:h-16" style={{ backgroundColor: pole.color }} />
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style={{ backgroundColor: pole.lightColor }}>
-                  {pole.icon}
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: pole.lightColor }}>
+                  <pole.Icon size={22} style={{ color: pole.color }} strokeWidth={1.5} />
                 </div>
               </div>
 
