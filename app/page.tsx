@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { SparklesCore } from './components/SparklesCore';
 import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
 import { FeatureGrid } from './components/FeatureGrid';
+import { FeatureCarousel } from './components/FeatureCarousel';
 import { Globe, BookOpen, Users, Lightbulb } from 'lucide-react';
 
 const poles = [
@@ -230,27 +231,7 @@ export default function Home() {
 
       {/* Blog / Conseils */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c] mb-4">Nos conseils pour vos projets en France</h2>
-            <div className="w-16 h-1 bg-[#C9A96E] mx-auto" />
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {articles.map((a) => (
-              <article key={a.title} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-all cursor-pointer">
-                <div className="h-36 relative flex items-center justify-center" style={{ backgroundColor: a.color }}>
-                  <div className="absolute inset-0 bg-black/20" />
-                  <span className="relative text-white/20 text-8xl font-black select-none">EPIC</span>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-[#0f1e3c] mb-2 text-lg">{a.title}</h3>
-                  <p className="text-sm text-gray-500">{a.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+        <FeatureCarousel />
       </section>
 
       {/* CTA final */}
