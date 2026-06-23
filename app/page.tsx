@@ -123,8 +123,8 @@ export default function Home() {
       {/* Pôles détaillés */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-4">
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#C9A96E] mb-3">Nos expertises</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c]">Nos domaines d&apos;expertise</h2>
+          <div className="w-16 h-1 bg-[#C9A96E] mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c] uppercase">Nos domaines d&apos;expertise</h2>
         </div>
         <div className="max-w-7xl mx-auto px-6 pb-20 mt-10 flex flex-col gap-0 divide-y divide-gray-100">
           {poles.map((pole) => (
