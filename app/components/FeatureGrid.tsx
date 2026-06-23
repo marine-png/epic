@@ -60,7 +60,7 @@ export const FeatureGrid = React.forwardRef<HTMLElement, FeatureGridProps>(
       <section ref={ref} className={cn('w-full py-20 bg-gray-50', className)} aria-labelledby={titleId}>
         <div className="container mx-auto px-6 md:px-8">
           <div className="mx-auto max-w-3xl text-center mb-14">
-            <h2 id={titleId} className="text-3xl font-bold tracking-tight text-[#0f1e3c] sm:text-4xl">
+            <h2 id={titleId} className="text-3xl font-bold tracking-tight text-[#0f1e3c] sm:text-4xl uppercase">
               {sectionTitle}
             </h2>
             <div className="w-16 h-1 bg-[#C9A96E] mx-auto mt-4" />
