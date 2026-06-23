@@ -79,12 +79,12 @@ function AnimatedHeroTitle() {
 
   return (
     <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-      Vos conseillers en{' '}
-      <span className="relative inline-flex justify-start overflow-hidden" style={{ minWidth: '16ch', verticalAlign: 'bottom' }}>
+      <span className="block">Vos conseillers en</span>
+      <span className="relative block h-[1.2em] overflow-hidden">
         {poleWords.map((p, i) => (
           <motion.span
             key={p.word}
-            className="absolute font-bold"
+            className="absolute inset-0 flex items-center justify-center font-bold"
             style={{ color: p.color }}
             initial={{ opacity: 0, y: 60 }}
             transition={{ type: 'spring', stiffness: 60, damping: 14 }}
@@ -93,7 +93,6 @@ function AnimatedHeroTitle() {
             {p.word}
           </motion.span>
         ))}
-        <span className="invisible">{poleWords[0].word}</span>
       </span>
     </h1>
   );
@@ -103,7 +102,7 @@ export default function Home() {
   return (
     <>
       {/* Hero centré */}
-      <section className="py-28 bg-[#0f1e3c] text-white">
+      <section className="pt-40 pb-28 bg-[#0f1e3c] text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedHeroTitle />
           <p className="text-lg text-white/75 leading-relaxed mb-4">
