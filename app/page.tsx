@@ -90,7 +90,6 @@ function AnimatedHeroTitle() {
         ))}
         <span className="invisible">{poleWords[0].word}</span>
       </span>
-      <span className="text-[#C9A96E]"> en France</span>
     </h1>
   );
 }
