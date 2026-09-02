@@ -175,14 +175,6 @@ export default function Home() {
                   href={pole.href}
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-transparent hover:shadow-xl transition-all duration-300 flex flex-col relative h-full"
                 >
-                  {/* Numéro décoratif */}
-                  <span
-                    className="absolute top-3 right-5 text-8xl font-bold select-none pointer-events-none leading-none"
-                    style={{ color: pole.color, opacity: 0.05 }}
-                  >
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-
                   {/* Bande colorée en haut */}
                   <div className="h-[3px]" style={{ backgroundColor: pole.color }} />
 
