@@ -57,8 +57,7 @@ export default function TeamSection({
                 </p>
                 <h3
                   className="font-black leading-none mb-7"
-                  style={{ color: accentColor }}
-                  style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}
+                  style={{ color: accentColor, fontSize: 'clamp(3rem, 6vw, 5rem)' }}
                 >
                   {expert.name}
                 </h3>
