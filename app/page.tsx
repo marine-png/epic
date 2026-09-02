@@ -104,6 +104,30 @@ export default function Home() {
       {/* Hero centré */}
       <section className="pt-40 pb-28 bg-[#0f1e3c] text-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
+          {/* Logo EPIC — grille 2x2 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="inline-grid grid-cols-2 mb-10 border border-[#C9A96E]/60"
+            style={{ width: 140, height: 140 }}
+          >
+            {['E', 'P', 'I', 'C'].map((letter, i) => (
+              <motion.div
+                key={letter}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.15 + i * 0.1, duration: 0.4 }}
+                className="flex items-center justify-center text-4xl font-bold text-[#C9A96E] relative"
+                style={{
+                  borderRight: i % 2 === 0 ? '1px solid rgba(201,169,110,0.6)' : undefined,
+                  borderBottom: i < 2 ? '1px solid rgba(201,169,110,0.6)' : undefined,
+                }}
+              >
+                {letter}
+              </motion.div>
+            ))}
+          </motion.div>
           <AnimatedHeroTitle />
           <p className="text-lg text-white/75 leading-relaxed mb-4">
             Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
