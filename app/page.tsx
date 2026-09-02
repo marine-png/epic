@@ -101,39 +101,16 @@ function AnimatedHeroTitle() {
 export default function Home() {
   return (
     <>
-      {/* Hero centré */}
-      <section className="pt-40 pb-28 bg-[#0f1e3c] text-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          {/* Logo EPIC — grille 2x2 */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="inline-grid grid-cols-2 mb-10 border border-[#C9A96E]/60"
-            style={{ width: 140, height: 140 }}
-          >
-            {['E', 'P', 'I', 'C'].map((letter, i) => (
-              <motion.div
-                key={letter}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.15 + i * 0.1, duration: 0.4 }}
-                className="flex items-center justify-center text-4xl font-bold text-[#C9A96E] relative"
-                style={{
-                  borderRight: i % 2 === 0 ? '1px solid rgba(201,169,110,0.6)' : undefined,
-                  borderBottom: i < 2 ? '1px solid rgba(201,169,110,0.6)' : undefined,
-                }}
-              >
-                {letter}
-              </motion.div>
-            ))}
-          </motion.div>
+      {/* Hero — split layout */}
+      <section className="min-h-screen bg-[#0f1e3c] text-white flex flex-col lg:flex-row items-center overflow-hidden">
+        {/* Gauche — texte + CTA */}
+        <div className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:px-20 xl:px-28 pt-40 pb-16 lg:py-0">
           <AnimatedHeroTitle />
-          <p className="text-lg text-white/75 leading-relaxed mb-4">
+          <p className="text-lg text-white/75 leading-relaxed mb-4 max-w-lg">
             Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
           </p>
           <p className="text-sm text-white/50 mb-10">Nous intervenons partout en France, auprès d&apos;une clientèle nationale et internationale.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4">
             <Link href="/contact" className="bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-4 rounded hover:bg-[#e8d4a8] transition-colors">
               Nous contacter
             </Link>
@@ -141,6 +118,23 @@ export default function Home() {
               Notre équipe →
             </Link>
           </div>
+        </div>
+
+        {/* Droite — logo */}
+        <div className="flex-1 flex items-center justify-center relative py-20 lg:py-0 min-h-[50vh] lg:min-h-screen">
+          {/* Glow doré derrière le logo */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[600px] h-[600px] rounded-full bg-[#C9A96E]/8 blur-3xl" />
+          </div>
+          <motion.img
+            src="/logo-dark.svg"
+            alt="EPIC Logo"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, ease: 'easeOut', delay: 0.3 }}
+            className="relative z-10 w-[300px] md:w-[400px] lg:w-[480px] xl:w-[540px]"
+            style={{ filter: 'drop-shadow(0 0 80px rgba(201,169,110,0.35))' }}
+          />
         </div>
       </section>
 
