@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SectionBanner from '../components/SectionBanner';
+import ProcessSteps from '../components/ProcessSteps';
 
 export const metadata: Metadata = {
   title: 'Conseil en Entreprise en France – EPIC',
@@ -43,7 +44,7 @@ const services = [
 ];
 
 const steps = [
-  { num: "01", title: "Prise de contact", desc: "Vous nous présentez votre projet et vos objectifs." },
+  { num: "01", title: "Prise de contact", desc: "Vous nous présentez votre projet et vos objectifs.", cta: { label: "Demander un rendez-vous", href: "/contact" } },
   { num: "02", title: "Analyse du projet", desc: "Étude de faisabilité et validation de la cohérence globale." },
   { num: "03", title: "Négociation (option)", desc: "Accompagnement dans la négociation du prix d'acquisition." },
   { num: "04", title: "Business plan & financement", desc: "Construction du prévisionnel et du plan de financement." },
@@ -116,30 +117,13 @@ export default function EntreprisePage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mb-12 text-center">Comment ça marche ?</h2>
-          <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[#1B3A6B]/20 hidden md:block" />
-            <div className="space-y-8">
-              {steps.map((step) => (
-                <div key={step.num} className="flex gap-6 items-start">
-                  <div className="w-12 h-12 rounded-full bg-[#1B3A6B] text-white flex items-center justify-center font-bold flex-shrink-0 text-sm relative z-10">
-                    {step.num}
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-5 flex-1">
-                    <h3 className="font-bold text-[#0f1e3c] mb-1">{step.title}</h3>
-                    <p className="text-sm text-gray-600">{step.desc}</p>
-                    {step.num === "01" && (
-                      <Link href="/contact" className="inline-block mt-3 text-xs font-semibold text-[#1B3A6B] border border-[#1B3A6B] px-4 py-1.5 rounded hover:bg-[#1B3A6B] hover:text-white transition-colors">
-                        Demander un rendez-vous
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="mb-12 text-center">
+            <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mb-4" />
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c]">Comment ça marche ?</h2>
           </div>
+          <ProcessSteps steps={steps} color={COLOR} />
         </div>
       </section>
 
