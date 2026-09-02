@@ -7,7 +7,7 @@ import TeamSection from '../components/TeamSection';
 
 export const metadata: Metadata = {
   title: 'EPIC – Conseil en immobilier professionnel et investissement en France',
-  description: "EPIC accompagne entrepreneurs et investisseurs dans leurs projets immobiliers en France : locaux commerciaux, fonds de commerce, investissements locatifs et résidences secondaires.",
+  description: "EPIC accompagne entrepreneurs et investisseurs dans leurs projets immobiliers en France : locaux commerciaux, fonds de commerce, investissements locatifs et résidences secondaires.",
 };
 
 const COLOR = '#C9601A';
@@ -46,7 +46,7 @@ export default function ImmobilierPage() {
   return (
     <>
       <SectionBanner
-        color="#0f1e3c"
+        color={COLOR}
         label="Pôle Immobilier"
         title="Conseil et accompagnement en immobilier professionnel et investissement"
         description="EPIC accompagne entrepreneurs, investisseurs et porteurs de projets dans leurs projets immobiliers en France. Un suivi personnalisé et multilingue pour sécuriser vos acquisitions."
@@ -55,7 +55,7 @@ export default function ImmobilierPage() {
       />
 
       {/* Services */}
-      <section className="py-20 bg-[#0f1e3c]">
+      <section className="py-20 text-white" style={{ backgroundColor: COLOR }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nos services Immobilier</h2>
@@ -75,7 +75,7 @@ export default function ImmobilierPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-12 text-center">
             <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c]">Comment ça marche ?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c]">Comment ça marche ?</h2>
           </div>
           <div className="flex justify-center">
             <ProcessSteps steps={steps} color={COLOR} />
@@ -107,13 +107,13 @@ export default function ImmobilierPage() {
       />
 
       {/* CTA international */}
-      <section className="py-20 bg-[#0f1e3c] text-white">
+      <section className="py-20 text-white" style={{ backgroundColor: COLOR }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">International – Acheter un bien immobilier en France</h2>
           <p className="text-white/75 mb-8 leading-relaxed">
-            Vous êtes un investisseur international et souhaitez acquérir un bien immobilier en France ? EPIC vous accompagne dans la recherche, l&apos;acquisition et la sécurisation de vos projets immobiliers, qu&apos;ils soient professionnels ou à vocation d&apos;investissement.
+            Vous êtes un investisseur international et souhaitez acquérir un bien immobilier en France ? EPIC vous accompagne dans la recherche, l&apos;acquisition et la sécurisation de vos projets immobiliers, qu&apos;ils soient professionnels ou à vocation d&apos;investissement.
           </p>
-          <Link href="/contact" className="inline-block bg-white text-[#0f1e3c] font-bold px-8 py-3 rounded hover:bg-gray-100 transition-colors">
+          <Link href="/contact" className="inline-block bg-white text-[#C9601A] font-bold px-8 py-3 rounded hover:bg-gray-100 transition-colors">
             Nous contacter →
           </Link>
         </div>
