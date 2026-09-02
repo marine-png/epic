@@ -73,7 +73,7 @@ function AnimatedHeroTitle() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setTimeout(() => setIndex((i) => (i + 1) % poleWords.length), 2500);
+    const id = setTimeout(() => setIndex((i) => (i + 1) % poleWords.length), 1400);
     return () => clearTimeout(id);
   }, [index]);
 
@@ -84,7 +84,7 @@ function AnimatedHeroTitle() {
         {poleWords.map((p, i) => (
           <motion.span
             key={p.word}
-            className="absolute inset-0 flex items-center justify-center font-bold"
+            className="absolute inset-0 flex items-center justify-start font-bold"
             style={{ color: p.color }}
             initial={{ opacity: 0, y: 60 }}
             transition={{ type: 'spring', stiffness: 60, damping: 14 }}
@@ -104,7 +104,7 @@ export default function Home() {
       {/* Hero — split layout */}
       <section className="min-h-screen bg-[#0f1e3c] text-white flex flex-col lg:flex-row items-center overflow-hidden">
         {/* Gauche — texte + CTA */}
-        <div className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:px-20 xl:px-28 pt-40 pb-16 lg:py-0">
+        <div className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:pl-28 lg:pr-8 xl:pl-36 xl:pr-10 pt-40 pb-16 lg:py-0">
           <AnimatedHeroTitle />
           <p className="text-lg text-white/75 leading-relaxed mb-4 max-w-lg">
             Chez EPIC, nous accompagnons entrepreneurs et investisseurs dans leurs projets en France. Nos conseillers vous guident à chaque étape avec une approche globale, claire et personnalisée.
@@ -121,7 +121,7 @@ export default function Home() {
         </div>
 
         {/* Droite — logo */}
-        <div className="flex-1 flex items-center justify-center relative py-20 lg:py-0 min-h-[50vh] lg:min-h-screen">
+        <div className="flex-1 flex items-center justify-center lg:justify-start relative py-20 lg:py-0 min-h-[50vh] lg:min-h-screen lg:pl-4 lg:pr-16 xl:pr-24">
           {/* Glow doré derrière le logo */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[600px] h-[600px] rounded-full bg-[#C9A96E]/8 blur-3xl" />
