@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SectionBanner from '../components/SectionBanner';
 import ProcessSteps from '../components/ProcessSteps';
 import ServicesTabs from '../components/ServicesTabs';
+import TeamSection from '../components/TeamSection';
 
 export const metadata: Metadata = {
   title: 'Conseil en Entreprise en France – EPIC',
@@ -125,36 +126,38 @@ export default function EntreprisePage() {
         </div>
       </section>
 
-      {/* Experts */}
-      <section className="py-20 bg-[#EEF3FB]">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mb-12">Nos experts Entreprise</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="w-14 h-14 rounded-full bg-[#1B3A6B] flex items-center justify-center text-white font-bold text-xl mb-5">P</div>
-              <h3 className="text-lg font-bold text-[#0f1e3c]">Pieter</h3>
-              <p className="text-sm text-[#1B3A6B] font-medium mb-4">Expert en acquisition et développement</p>
-              <p className="text-sm text-gray-600 mb-4">Franco-belge, 55 ans, ingénieur commercial de formation, Pieter dispose d'une solide expérience en gestion, finance et entrepreneuriat.</p>
-              <ul className="space-y-1">
-                {["9 ans dans les services financiers d'une entreprise de construction cotée", "6 ans dirigeant d'un hôtel en France", "9 ans dirigeant-fondateur d'une entreprise de distribution", "4 ans en conseil auprès de chefs d'entreprise"].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-xs text-gray-500">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1B3A6B] flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 text-xs text-[#1B3A6B] font-semibold">Acquisition · Développement · Stratégie · Vente</p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="w-14 h-14 rounded-full bg-[#1B3A6B] flex items-center justify-center text-white font-bold text-xl mb-5">N</div>
-              <h3 className="text-lg font-bold text-[#0f1e3c]">Nicolas</h3>
-              <p className="text-sm text-[#1B3A6B] font-medium mb-4">Expert en structuration et stratégie</p>
-              <p className="text-sm text-gray-600">Spécialisé dans l'accompagnement des entrepreneurs, Nicolas intervient sur la structuration juridique, la stratégie et le développement des projets. Il accompagne chaque client avec une approche personnalisée, en tenant compte des enjeux financiers, organisationnels et humains.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TeamSection
+        accentColor={COLOR}
+        bgColor="#EEF3FB"
+        label="Notre équipe"
+        title="Nos experts Entreprise"
+        experts={[
+          {
+            id: 'pieter',
+            initial: 'P',
+            name: 'Pieter',
+            role: 'Expert en acquisition et développement',
+            desc: "Franco-belge, 55 ans, ingénieur commercial de formation, Pieter dispose d'une solide expérience en gestion, finance et entrepreneuriat.",
+            bullets: [
+              "9 ans dans les services financiers d'une entreprise de construction cotée",
+              "6 ans dirigeant d'un hôtel en France",
+              "9 ans dirigeant-fondateur d'une entreprise de distribution",
+              "4 ans en conseil auprès de chefs d'entreprise",
+            ],
+            tags: 'Acquisition · Développement · Stratégie · Vente',
+            color: COLOR,
+          },
+          {
+            id: 'nicolas',
+            initial: 'N',
+            name: 'Nicolas',
+            role: 'Expert en structuration et stratégie',
+            desc: "Spécialisé dans l'accompagnement des entrepreneurs, Nicolas intervient sur la structuration juridique, la stratégie et le développement des projets. Il accompagne chaque client avec une approche personnalisée, en tenant compte des enjeux financiers, organisationnels et humains.",
+            tags: 'Structuration · Stratégie · Développement · Conseil',
+            color: COLOR,
+          },
+        ]}
+      />
 
       {/* CTA international */}
       <section className="py-20 bg-[#1B3A6B] text-white">
