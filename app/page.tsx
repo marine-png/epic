@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SparklesCore } from './components/SparklesCore';
 import RadialOrbitalTimeline from './components/RadialOrbitalTimeline';
-import { FeatureGrid } from './components/FeatureGrid';
 import { FeatureCarousel } from './components/FeatureCarousel';
 import { TypewriterEffect } from './components/TypewriterEffect';
 import { Globe, BookOpen, Users, Lightbulb, Briefcase, TrendingUp, Building2 } from 'lucide-react';
@@ -68,6 +67,26 @@ const poleWords = [
   { word: 'Patrimoine', color: '#C9A96E' },
   { word: 'Immobilier', color: '#C9A96E' },
 ];
+
+function AccordionItem({ title, desc }: { title: string; desc: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-gray-100 last:border-0">
+      <button
+        onClick={() => setOpen(!open)}
+        className="group flex items-center justify-between gap-6 py-6 text-left w-full"
+      >
+        <h3 className="font-semibold text-[#0f1e3c] text-base md:text-lg group-hover:text-[#1B3A6B] transition-colors">{title}</h3>
+        <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center flex-shrink-0 group-hover:border-[#C9A96E] transition-colors duration-200">
+          <span className="text-gray-400 text-xl leading-none group-hover:text-[#C9A96E] transition-colors" style={{ lineHeight: 1 }}>{open ? '−' : '+'}</span>
+        </div>
+      </button>
+      {open && (
+        <p className="text-gray-500 text-sm leading-relaxed pb-5 pr-12">{desc}</p>
+      )}
+    </div>
+  );
+}
 
 function AnimatedHeroTitle() {
   const [index, setIndex] = useState(0);
@@ -191,21 +210,34 @@ export default function Home() {
       </section>
 
       {/* Pourquoi nous choisir */}
-      <FeatureGrid
-        sectionTitle="Pourquoi nous choisir ?"
-        sectionDescription=""
-        features={[
-          { Icon: Globe, title: 'Expertise pluridisciplinaire', description: 'Une vision globale grâce à nos conseillers en entreprise, patrimoine et immobilier.' },
-          { Icon: BookOpen, title: 'Accompagnement de A à Z', description: "De l'idée à la réalisation, nous vous guidons à chaque étape." },
-          { Icon: Users, title: 'Équipe expérimentée et multilingue', description: 'Un accompagnement adapté aux clients français et internationaux.' },
-          { Icon: Lightbulb, title: 'Approche personnalisée et réactive', description: 'Des solutions sur mesure, adaptées à votre projet.' },
-        ]}
-        footer={
-          <Link href="/a-propos" className="inline-block border-2 border-white/30 text-white font-semibold px-8 py-3 rounded hover:bg-white/10 transition-colors">
-            Rencontrez notre équipe →
-          </Link>
-        }
-      />
+      {/* Pourquoi nous choisir — FAQ layout */}
+      <section className="bg-white py-24">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row gap-16 lg:gap-24">
+          {/* Gauche */}
+          <div className="lg:w-2/5 flex-shrink-0">
+            <div className="w-16 h-1 bg-[#C9A96E] mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c] uppercase leading-tight mb-6">
+              Pourquoi nous<br />choisir ?
+            </h2>
+            <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs">
+              Chez EPIC, nous combinons expertise, réactivité et approche sur mesure pour chaque projet, en France et à l&apos;international.
+            </p>
+            <Link
+              href="/a-propos"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#1B3A6B] border border-[#1B3A6B]/30 px-6 py-3 rounded hover:bg-[#1B3A6B] hover:text-white transition-all duration-200"
+            >
+              Rencontrez notre équipe →
+            </Link>
+          </div>
+
+          {/* Droite — accordéon */}
+          <div className="flex-1 flex flex-col">
+            {atouts.map((a) => (
+              <AccordionItem key={a.title} title={a.title} desc={a.desc} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Blog / Conseils */}
       <section className="py-24 bg-white">
