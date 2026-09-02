@@ -245,9 +245,9 @@ export default function Home() {
       </section>
 
       {/* CTA final — Typewriter */}
-      <section className="py-28 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="w-2/3 h-0.5 bg-[#C9A96E] mx-auto mb-16" />
+          <div className="w-2/3 h-0.5 bg-[#C9A96E] mx-auto mb-10" />
         </div>
         <div className="relative max-w-4xl mx-auto px-6 text-center flex flex-col items-center gap-8">
           <p className="text-[#0f1e3c]/50 text-base md:text-lg tracking-wide">
