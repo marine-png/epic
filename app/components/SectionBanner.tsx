@@ -13,7 +13,7 @@ function CompassLogo({ activeLetter = 'E' }: { activeLetter?: 'E' | 'P' | 'I' | 
   const arrowOpacity = (l: string) => isActive(l) ? 1 : 0.15;
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -8 210 216" width="100%" height="100%">
       {/* Outer dashed ring */}
       <circle cx="100" cy="100" r="90" fill="none" stroke="white" strokeWidth="1" strokeDasharray="5 4" opacity="0.15"/>
       {/* Inner rings */}
