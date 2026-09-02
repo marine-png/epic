@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SectionBanner from '../components/SectionBanner';
 import ProcessSteps from '../components/ProcessSteps';
+import ServicesTabs from '../components/ServicesTabs';
 
 export const metadata: Metadata = {
   title: 'Conseil en Entreprise en France – EPIC',
@@ -83,32 +84,13 @@ export default function EntreprisePage() {
 
       {/* Services */}
       <section className="py-20 bg-[#0f1e3c]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-12">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nos services pour votre entreprise</h2>
             <div className="w-12 h-1 bg-[#C9A96E]" />
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
-              <div key={s.title} className="bg-white/5 p-7 rounded-2xl border border-white/10 hover:border-white/20 hover:bg-white/8 transition-all duration-300">
-                <div className="w-1 h-8 rounded bg-[#C9A96E] mb-4" />
-                <h3 className="font-bold text-white mb-3">{s.title}</h3>
-                <p className="text-sm text-white/65 leading-relaxed mb-3">{s.desc}</p>
-                {s.bullets && (
-                  <ul className="space-y-1 mb-3">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-white/50">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9A96E] flex-shrink-0" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {s.livrable && <p className="text-xs text-[#C9A96E] font-semibold border-t border-white/10 pt-3 mt-3">Livrable : {s.livrable}</p>}
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
+          <ServicesTabs services={services} color={COLOR} />
+          <div className="text-center mt-12">
             <Link href="/contact" className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-3 rounded hover:bg-[#e8d4a8] transition-colors">
               Planifiez votre accompagnement →
             </Link>
