@@ -57,7 +57,7 @@ export default function EntreprisePage() {
   return (
     <>
       <SectionBanner
-        color={COLOR}
+        color="#0f1e3c"
         label="Pôle Entreprise"
         title="Conseil et accompagnement pour votre entreprise en France"
         description="EPIC accompagne les entrepreneurs et porteurs de projets à chaque étape de l'acquisition, de la création ou du développement d'entreprise en France."
@@ -128,6 +128,7 @@ export default function EntreprisePage() {
 
       <TeamSection
         accentColor={COLOR}
+        bgColor="#EEF3FB"
         label="Notre équipe"
         title="Nos experts Entreprise"
         experts={[
@@ -159,7 +160,7 @@ export default function EntreprisePage() {
       />
 
       {/* CTA international */}
-      <section className="py-20 bg-[#1B3A6B] text-white">
+      <section className="py-20 bg-[#0f1e3c] text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Démarrer un projet en France</h2>
           <p className="text-white/75 mb-8 leading-relaxed">
