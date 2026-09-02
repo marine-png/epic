@@ -128,7 +128,6 @@ export default function EntreprisePage() {
 
       <TeamSection
         accentColor={COLOR}
-        bgColor="#EEF3FB"
         label="Notre équipe"
         title="Nos experts Entreprise"
         experts={[
