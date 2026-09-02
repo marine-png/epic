@@ -69,7 +69,7 @@ export function FeatureCarousel() {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
-      <div className="relative overflow-hidden rounded-[2rem] flex flex-col lg:flex-row min-h-[560px] lg:aspect-video border border-white/10 shadow-2xl">
+      <div className="relative overflow-hidden rounded-[2rem] flex flex-col lg:flex-row min-h-[560px] lg:aspect-video border border-white/10">
 
         {/* Panneau gauche — titre + labels */}
         <div className="w-full lg:w-[42%] min-h-[320px] lg:h-full relative z-30 flex flex-col justify-between overflow-hidden bg-[#0f1e3c]">
