@@ -240,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* Blog / Conseils */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <FeatureCarousel />
       </section>
 
