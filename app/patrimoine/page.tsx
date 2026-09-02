@@ -76,15 +76,12 @@ export default function PatrimoinePage() {
       {/* Services */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mb-3">Nos services Patrimoine</h2>
-            <div className="w-12 h-1 bg-[#C9A96E]" />
-          </div>
           <ServicesTabs
             services={services}
             color={COLOR}
             dark={false}
             image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200"
+            heading="Nos services Patrimoine"
           />
           <div className="text-center mt-12">
             <Link href="/contact" className="inline-block font-bold px-8 py-3 rounded text-white transition-colors" style={{ backgroundColor: COLOR }}>
