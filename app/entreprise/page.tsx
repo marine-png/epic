@@ -59,6 +59,7 @@ export default function EntreprisePage() {
         title="Conseil et accompagnement pour votre entreprise en France"
         description="EPIC accompagne les entrepreneurs et porteurs de projets à chaque étape de l'acquisition, de la création ou du développement d'entreprise en France."
         cta={{ label: "Nous contacter pour votre projet", href: "/contact" }}
+        activeLetter="E"
       />
 
       {/* Approche */}
