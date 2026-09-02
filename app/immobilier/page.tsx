@@ -55,15 +55,20 @@ export default function ImmobilierPage() {
       />
 
       {/* Services */}
-      <section className="py-20 text-white" style={{ backgroundColor: COLOR }}>
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nos services Immobilier</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mb-3">Nos services Immobilier</h2>
             <div className="w-12 h-1 bg-[#C9A96E]" />
           </div>
-          <ServicesTabs services={services} color={COLOR} />
+          <ServicesTabs
+            services={services}
+            color={COLOR}
+            dark={false}
+            image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200"
+          />
           <div className="text-center mt-12">
-            <Link href="/contact" className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-3 rounded hover:bg-[#e8d4a8] transition-colors">
+            <Link href="/contact" className="inline-block font-bold px-8 py-3 rounded text-white transition-colors" style={{ backgroundColor: COLOR }}>
               Planifiez votre accompagnement →
             </Link>
           </div>
@@ -71,7 +76,7 @@ export default function ImmobilierPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-12 text-center">
             <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mb-4" />
@@ -113,9 +118,32 @@ export default function ImmobilierPage() {
           <p className="text-white/75 mb-8 leading-relaxed">
             Vous êtes un investisseur international et souhaitez acquérir un bien immobilier en France ? EPIC vous accompagne dans la recherche, l&apos;acquisition et la sécurisation de vos projets immobiliers, qu&apos;ils soient professionnels ou à vocation d&apos;investissement.
           </p>
-          <Link href="/contact" className="inline-block bg-white text-[#C9601A] font-bold px-8 py-3 rounded hover:bg-gray-100 transition-colors">
+          <Link href="/contact" className="inline-block bg-white font-bold px-8 py-3 rounded hover:bg-gray-100 transition-colors" style={{ color: COLOR }}>
             Nous contacter →
           </Link>
+        </div>
+      </section>
+
+      {/* Autres pôles */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-xl font-bold text-[#0f1e3c] mb-8 text-center">Découvrez nos autres domaines d&apos;expertise</h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <Link href="/entreprise" className="flex items-center gap-4 bg-white p-6 rounded-xl border border-gray-100 hover:shadow-md transition-all">
+              <div className="w-10 h-10 rounded-lg bg-[#EEF3FB] flex items-center justify-center text-xl">🏢</div>
+              <div>
+                <p className="font-semibold text-[#1B3A6B]">Entreprise</p>
+                <p className="text-xs text-gray-500">Conseil et accompagnement entrepreneurial</p>
+              </div>
+            </Link>
+            <Link href="/patrimoine" className="flex items-center gap-4 bg-white p-6 rounded-xl border border-gray-100 hover:shadow-md transition-all">
+              <div className="w-10 h-10 rounded-lg bg-[#EEFAF4] flex items-center justify-center text-xl">📊</div>
+              <div>
+                <p className="font-semibold text-[#2D6A4F]">Patrimoine</p>
+                <p className="text-xs text-gray-500">Gestion et optimisation de patrimoine</p>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
     </>
