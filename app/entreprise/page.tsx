@@ -66,19 +66,33 @@ export default function EntreprisePage() {
 
       {/* Approche */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mb-8">Une approche gagnant-gagnant</h2>
-          <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            {["Des honoraires maîtrisés au départ", "Une rémunération alignée sur le succès", "Une démarche claire, progressive et rassurante"].map((item) => (
-              <div key={item} className="flex items-start gap-3 bg-[#EEF3FB] p-5 rounded-xl">
-                <span className="text-[#1B3A6B] font-bold text-xl">✓</span>
-                <p className="text-sm font-medium text-[#1B3A6B]">{item}</p>
-              </div>
-            ))}
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
+            {/* Gauche */}
+            <div className="lg:w-80 flex-shrink-0">
+              <div className="w-10 h-0.5 bg-[#C9A96E] mb-6" />
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] leading-tight mb-5">Une approche gagnant-gagnant</h2>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Nous travaillons avec des partenaires de confiance — notaires, banques, experts-comptables — pour sécuriser et accélérer votre projet à chaque étape.
+              </p>
+            </div>
+            {/* Droite — liste numérotée */}
+            <div className="flex-1 divide-y divide-gray-100">
+              {[
+                { num: "01", title: "Des honoraires maîtrisés", desc: "Une entrée en relation transparente, sans surprise, avec des frais clairs dès le départ." },
+                { num: "02", title: "Une rémunération alignée sur le succès", desc: "Nos intérêts sont alignés sur les vôtres : nous réussissons ensemble." },
+                { num: "03", title: "Une démarche claire et rassurante", desc: "Un processus structuré, progressif, conçu pour vous guider sans vous perdre." },
+              ].map((item) => (
+                <div key={item.num} className="flex items-start gap-7 py-7 first:pt-0 last:pb-0">
+                  <span className="text-3xl font-bold text-[#C9A96E] tabular-nums flex-shrink-0 leading-none mt-0.5">{item.num}</span>
+                  <div>
+                    <p className="text-base font-bold text-[#0f1e3c] mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="text-gray-600 leading-relaxed">
-            Nous travaillons en collaboration avec des partenaires de confiance (notaires, banques, experts-comptables) afin de sécuriser et accélérer la réalisation de votre projet.
-          </p>
         </div>
       </section>
 
