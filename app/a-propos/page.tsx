@@ -1,19 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CompassTeam from '../components/CompassTeam';
+import ChainSection from '../components/ChainSection';
 
 export const metadata: Metadata = {
   title: 'EPIC – Découvrez notre équipe',
   description: "Découvrez l'équipe EPIC, notre philosophie et notre approche pour accompagner vos projets d'entreprise, patrimoine et immobilier en France.",
 };
-
-const valeurs = [
-  { icon: '🤝', title: 'Proximité', desc: 'Nous sommes à vos côtés à chaque étape.' },
-  { icon: '🔍', title: 'Transparence', desc: 'Des conseils clairs et sans surprise.' },
-  { icon: '🎓', title: 'Expertise', desc: 'Une équipe de spécialistes confirmés.' },
-  { icon: '💡', title: 'Innovation', desc: 'Solutions modernes et adaptées.' },
-  { icon: '🏆', title: 'Résultats', desc: 'Votre réussite est notre mesure de succès.' },
-];
 
 export default function AProposPage() {
   return (
@@ -31,37 +24,18 @@ export default function AProposPage() {
             Découvrez nos services →
           </Link>
         </div>
-        {/* Séparateur droit — ligne droite */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-[#0f1e3c]/15" />
       </section>
 
-      {/* Philosophie */}
-      <section className="py-24 bg-gray-50" id="valeurs">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-10">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 rounded-lg bg-[#EEF3FB] flex items-center justify-center mb-5 text-xl">🔭</div>
-              <h2 className="text-lg font-bold text-[#0f1e3c] mb-3">Notre vision</h2>
-              <p className="text-sm text-gray-600 leading-relaxed">Nous croyons que chaque projet mérite une approche sur mesure, adaptée aux ambitions de nos clients. Votre succès est notre priorité et nous travaillons pour maximiser vos résultats tout en sécurisant vos investissements.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 rounded-lg bg-[#EEFAF4] flex items-center justify-center mb-5 text-xl">🎯</div>
-              <h2 className="text-lg font-bold text-[#0f1e3c] mb-3">Notre mission</h2>
-              <p className="text-sm text-gray-600 leading-relaxed">Accompagner nos clients de manière intégrée et professionnelle, en combinant nos expertises en entreprise, patrimoine et immobilier pour offrir des solutions complètes et efficaces.</p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-10 h-10 rounded-lg bg-[#FDF3EC] flex items-center justify-center mb-5 text-xl">⭐</div>
-              <h2 className="text-lg font-bold text-[#0f1e3c] mb-3">Nos valeurs</h2>
-              <ul className="space-y-2">
-                {valeurs.map((v) => (
-                  <li key={v.title} className="flex items-center gap-3 text-sm text-gray-600">
-                    <span>{v.icon}</span>
-                    <span><strong>{v.title}</strong> — {v.desc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Chaîne interactive */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#C9A96E]">Notre identité</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mt-3 mb-3">Ce qui nous définit</h2>
+            <div className="w-12 h-1 bg-[#C9A96E] mx-auto" />
           </div>
+          <ChainSection />
         </div>
       </section>
 
@@ -76,32 +50,12 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Atouts */}
-      <section className="py-20 bg-[#0f1e3c] text-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">Nos atouts</h2>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {[
-              { title: "Accompagnement personnalisé", desc: "National et international" },
-              { title: "Expertise pluridisciplinaire", desc: "Entreprise, Patrimoine et Immobilier" },
-              { title: "Proximité et suivi de A à Z", desc: "Nous restons à vos côtés jusqu'au succès de votre projet" },
-            ].map((a) => (
-              <div key={a.title} className="text-center p-6">
-                <div className="w-1 h-8 bg-[#C9A96E] mx-auto mb-5 rounded" />
-                <h3 className="font-bold text-white mb-2">{a.title}</h3>
-                <p className="text-sm text-white/60">{a.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-16 bg-white text-center">
+      {/* CTA */}
+      <section className="py-16 bg-[#0f1e3c] text-center">
         <div className="max-w-xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-[#0f1e3c] mb-4">Contactez-nous</h2>
-          <p className="text-gray-500 mb-8">Nous serons ravis d&apos;échanger avec vous et de vous accompagner dans vos projets en France.</p>
-          <Link href="/contact" className="inline-block bg-[#1B3A6B] text-white font-semibold px-8 py-3 rounded hover:bg-[#0f2347] transition-colors">
+          <h2 className="text-2xl font-bold text-white mb-4">Parlons de votre projet</h2>
+          <p className="text-white/60 mb-8">Nous serons ravis d&apos;échanger avec vous et de vous accompagner dans vos projets en France.</p>
+          <Link href="/contact" className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-semibold px-8 py-3 rounded hover:bg-[#e8d4a8] transition-colors">
             Nous contacter →
           </Link>
         </div>
