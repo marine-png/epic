@@ -16,11 +16,13 @@ interface Expert {
 export default function TeamSection({
   experts,
   accentColor = '#1B3A6B',
+  bgColor = '#EEF3FB',
   label = 'Notre équipe',
   title = 'Nos experts',
 }: {
   experts: Expert[];
   accentColor?: string;
+  bgColor?: string;
   label?: string;
   title?: string;
 }) {
@@ -28,20 +30,20 @@ export default function TeamSection({
   const expert = experts[activeIdx];
 
   return (
-    <section className="py-20 bg-[#0f1e3c]">
+    <section className="py-20" style={{ backgroundColor: bgColor }}>
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
         <div className="mb-10">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/40">{label}</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">{title}</h2>
+          <span className="text-xs font-semibold uppercase tracking-[0.3em]" style={{ color: accentColor + '80' }}>{label}</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c] mt-2">{title}</h2>
         </div>
 
         {/* Main spotlight */}
-        <div className="flex flex-col lg:flex-row overflow-hidden rounded-3xl border border-white/10">
+        <div className="flex flex-col lg:flex-row overflow-hidden rounded-3xl border border-black/5">
 
           {/* Left — contenu */}
-          <div className="flex-1 p-10 lg:p-14 flex flex-col justify-center bg-white/[0.03]">
+          <div className="flex-1 p-10 lg:p-14 flex flex-col justify-center bg-white">
             <AnimatePresence mode="wait">
               <motion.div
                 key={expert.id}
@@ -54,27 +56,29 @@ export default function TeamSection({
                   {expert.role}
                 </p>
                 <h3
-                  className="font-black leading-none mb-7 text-white"
+                  className="font-black leading-none mb-7"
+                  style={{ color: accentColor }}
                   style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}
                 >
                   {expert.name}
                 </h3>
-                <p className="text-sm text-white/65 leading-relaxed mb-5">{expert.desc}</p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">{expert.desc}</p>
                 {expert.bullets && expert.bullets.length > 0 && (
                   <ul className="space-y-2 mb-6">
                     {expert.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-xs text-white/45">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#C9A96E]" />
+                      <li key={b} className="flex items-start gap-2 text-xs text-gray-500">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: accentColor }} />
                         {b}
                       </li>
                     ))}
                   </ul>
                 )}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
                   {expert.tags.split(' · ').map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-semibold px-3 py-1 rounded-full bg-[#C9A96E]/15 text-[#C9A96E]"
+                      className="text-xs font-semibold px-3 py-1 rounded-full"
+                      style={{ backgroundColor: accentColor + '12', color: accentColor }}
                     >
                       {tag}
                     </span>
@@ -85,7 +89,7 @@ export default function TeamSection({
           </div>
 
           {/* Right — panel avatar */}
-          <div className="lg:w-[340px] flex-shrink-0 relative overflow-hidden flex items-center justify-center min-h-[300px] bg-[#1B3A6B]">
+          <div className="lg:w-[340px] flex-shrink-0 relative overflow-hidden flex items-center justify-center min-h-[300px]" style={{ backgroundColor: accentColor }}>
             <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/5" />
             <div className="absolute -bottom-16 -left-16 w-52 h-52 rounded-full bg-[#C9A96E]/10" />
             {/* Lettre fantôme */}
@@ -124,24 +128,24 @@ export default function TeamSection({
               <button
                 key={e.id}
                 onClick={() => setActiveIdx(idx)}
-                className="flex items-center gap-4 rounded-2xl px-5 py-4 border transition-all duration-200"
+                className="flex items-center gap-4 bg-white rounded-2xl px-5 py-4 border-2 transition-all duration-200"
                 style={{
-                  borderColor: activeIdx === idx ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
-                  backgroundColor: activeIdx === idx ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
+                  borderColor: activeIdx === idx ? accentColor : 'transparent',
+                  boxShadow: activeIdx === idx ? `0 4px 20px ${accentColor}22` : 'none',
                 }}
               >
                 <div
                   className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0 transition-all"
                   style={{
-                    backgroundColor: activeIdx === idx ? '#C9A96E' : 'rgba(255,255,255,0.1)',
-                    color: 'white',
+                    backgroundColor: activeIdx === idx ? accentColor : bgColor,
+                    color: activeIdx === idx ? 'white' : accentColor,
                   }}
                 >
                   {e.initial}
                 </div>
                 <div className="text-left">
-                  <p className="font-bold text-sm text-white">{e.name}</p>
-                  <p className="text-xs text-white/40 mt-0.5">{e.role}</p>
+                  <p className="font-bold text-sm text-[#0f1e3c]">{e.name}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{e.role}</p>
                 </div>
               </button>
             ))}
