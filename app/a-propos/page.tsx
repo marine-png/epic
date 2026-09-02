@@ -18,20 +18,21 @@ const valeurs = [
 export default function AProposPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-[#0f1e3c] text-white relative overflow-hidden">
+      {/* Hero — fond doré, texte navy */}
+      <section className="pt-32 pb-20 relative overflow-hidden" style={{ backgroundColor: '#C9A96E' }}>
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] bg-white/10 px-3 py-1 rounded mb-6 text-[#C9A96E]">Notre équipe</span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Rencontrez l&apos;équipe EPIC</h1>
-          <p className="text-xl text-[#C9A96E] font-medium mb-6">Notre projet, c&apos;est votre réussite.</p>
-          <p className="text-lg text-white/75 leading-relaxed max-w-2xl">
+          <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] bg-[#0f1e3c]/15 px-3 py-1 rounded mb-6 text-[#0f1e3c]">Notre équipe</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#0f1e3c]">Rencontrez l&apos;équipe EPIC</h1>
+          <p className="text-xl font-medium mb-6 text-[#0f1e3c]/80">Notre projet, c&apos;est votre réussite.</p>
+          <p className="text-lg text-[#0f1e3c]/70 leading-relaxed max-w-2xl">
             EPIC est un groupe de spécialistes qui accompagne entrepreneurs, investisseurs et porteurs de projets dans la réussite de leurs projets en France. Notre approche est personnalisée, pluridisciplinaire et orientée résultats.
           </p>
-          <Link href="/entreprise" className="inline-block mt-8 border border-white/30 text-white font-medium px-6 py-3 rounded hover:bg-white/10 transition-colors">
+          <Link href="/entreprise" className="inline-block mt-8 border border-[#0f1e3c]/40 text-[#0f1e3c] font-medium px-6 py-3 rounded hover:bg-[#0f1e3c]/10 transition-colors">
             Découvrez nos services →
           </Link>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white" style={{ clipPath: 'ellipse(55% 100% at 50% 100%)' }} />
+        {/* Séparateur droit — ligne droite */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-[#0f1e3c]/15" />
       </section>
 
       {/* Philosophie */}
@@ -64,7 +65,7 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Équipe — Compass interactive */}
+      {/* Équipe — boussole interactive */}
       <section className="py-24 bg-white">
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-16">
