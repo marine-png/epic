@@ -117,13 +117,15 @@ export default function EntreprisePage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-12 text-center">
             <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mb-4" />
             <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c]">Comment ça marche ?</h2>
           </div>
-          <ProcessSteps steps={steps} color={COLOR} />
+          <div className="flex justify-center">
+            <ProcessSteps steps={steps} color={COLOR} />
+          </div>
         </div>
       </section>
 
