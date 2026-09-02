@@ -50,6 +50,7 @@ export default function ImmobilierPage() {
         title="Conseil et accompagnement en immobilier professionnel et investissement"
         description="EPIC accompagne entrepreneurs, investisseurs et porteurs de projets dans leurs projets immobiliers en France. Un suivi personnalisé et multilingue pour sécuriser vos acquisitions."
         cta={{ label: "Nous contacter pour votre projet immobilier", href: "/contact" }}
+        activeLetter="I"
       />
 
       {/* Services */}
