@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <>
       {/* Hero — split layout */}
-      <section className="min-h-screen bg-[#0f1e3c] text-white flex flex-col lg:flex-row items-center overflow-hidden">
+      <section className="min-h-screen bg-[#0f1e3c] text-white flex flex-col lg:flex-row items-center overflow-hidden lg:pt-20">
         {/* Gauche — texte + CTA */}
         <div className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:pl-28 lg:pr-8 xl:pl-36 xl:pr-10 pt-40 pb-16 lg:py-0">
           <AnimatedHeroTitle />
