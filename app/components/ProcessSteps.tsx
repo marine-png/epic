@@ -1,6 +1,7 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
+import { useRef } from 'react';
 
 interface Step {
   num: string;
@@ -9,52 +10,65 @@ interface Step {
   cta?: { label: string; href: string };
 }
 
+function StepItem({ step, color, isLast }: { step: Step; color: string; isLast: boolean }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, margin: '-5% 0px -38% 0px' });
+
+  return (
+    <div ref={ref} className="flex gap-6 relative pb-8 last:pb-0">
+      {/* Ligne verticale avec remplissage animé */}
+      {!isLast && (
+        <div className="absolute left-6 top-12 -translate-x-1/2 w-0.5 h-[calc(100%-48px)] bg-gray-200 overflow-hidden">
+          <motion.div
+            className="absolute inset-0 w-full origin-top"
+            style={{ backgroundColor: color }}
+            animate={{ scaleY: isInView ? 1 : 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+        </div>
+      )}
+
+      {/* Bulle numérotée */}
+      <motion.div
+        className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 z-10 border-2"
+        animate={{
+          backgroundColor: isInView ? color : 'transparent',
+          borderColor: isInView ? color : '#d1d5db',
+          color: isInView ? '#ffffff' : '#9ca3af',
+          scale: isInView ? [1, 1.18, 1] : 1,
+        }}
+        transition={{ duration: 0.35, type: 'spring', stiffness: 280, damping: 18 }}
+      >
+        {step.num}
+      </motion.div>
+
+      {/* Contenu */}
+      <motion.div
+        className="flex-1 bg-white rounded-xl border border-gray-100 p-5 shadow-sm"
+        animate={{ opacity: isInView ? 1 : 0.4, x: isInView ? 0 : 10 }}
+        transition={{ duration: 0.35, delay: 0.08 }}
+      >
+        <h3 className="font-bold text-[#0f1e3c] mb-1">{step.title}</h3>
+        <p className="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+        {step.cta && (
+          <Link
+            href={step.cta.href}
+            className="inline-block mt-3 text-xs font-semibold border px-4 py-1.5 rounded transition-all duration-200 hover:text-white"
+            style={{ color, borderColor: color + '50' }}
+          >
+            {step.cta.label}
+          </Link>
+        )}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function ProcessSteps({ steps, color }: { steps: Step[]; color: string }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className="max-w-2xl">
       {steps.map((step, idx) => (
-        <motion.div
-          key={step.num}
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: idx * 0.1 }}
-          className="relative bg-white rounded-2xl border border-gray-100 hover:shadow-lg transition-all duration-300 overflow-hidden p-7 flex flex-col gap-3"
-        >
-          {/* Accent coloré en haut */}
-          <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ backgroundColor: color }} />
-
-          {/* Numéro fantôme en fond */}
-          <span
-            className="absolute bottom-2 right-4 text-8xl font-black leading-none select-none pointer-events-none"
-            style={{ color, opacity: 0.05 }}
-          >
-            {step.num}
-          </span>
-
-          {/* Badge étape */}
-          <span
-            className="self-start text-xs font-bold px-2.5 py-1 rounded-full"
-            style={{ backgroundColor: color + '18', color }}
-          >
-            {step.num}
-          </span>
-
-          <h3 className="font-bold text-[#0f1e3c] text-lg leading-snug">{step.title}</h3>
-          <p className="text-sm text-gray-500 leading-relaxed flex-1">{step.desc}</p>
-
-          {step.cta && (
-            <Link
-              href={step.cta.href}
-              className="self-start mt-2 text-xs font-semibold border px-4 py-2 rounded transition-all duration-200 hover:text-white"
-              style={{ color, borderColor: color + '50' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = color; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = ''; }}
-            >
-              {step.cta.label}
-            </Link>
-          )}
-        </motion.div>
+        <StepItem key={step.num} step={step} color={color} isLast={idx === steps.length - 1} />
       ))}
     </div>
   );
