@@ -10,9 +10,9 @@ const ICONS = [Search, CreditCard, BarChart2, Building2, PlusCircle, TrendingUp]
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200';
 
 export default function ServicesTabs({
-  services, color, dark = true, image,
+  services, color, dark = true, image, heading,
 }: {
-  services: Service[]; color: string; dark?: boolean; image?: string;
+  services: Service[]; color: string; dark?: boolean; image?: string; heading?: string;
 }) {
   const [open, setOpen] = useState<number | null>(0);
   const imgSrc = image ?? DEFAULT_IMAGE;
@@ -21,6 +21,12 @@ export default function ServicesTabs({
     <div className="flex flex-col lg:flex-row gap-16 items-center">
       {/* Gauche — accordéon */}
       <div className="w-full lg:w-[48%] flex-shrink-0 flex flex-col gap-2">
+        {heading && (
+          <div className="mb-6">
+            <h2 className={`text-2xl md:text-3xl font-bold mb-3 ${dark ? 'text-white' : 'text-[#0f1e3c]'}`}>{heading}</h2>
+            <div className="w-12 h-1 bg-[#C9A96E]" />
+          </div>
+        )}
         {services.map((s, i) => {
           const Icon = ICONS[i];
           const isOpen = open === i;
