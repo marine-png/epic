@@ -56,7 +56,7 @@ export default function PatrimoinePage() {
   return (
     <>
       <SectionBanner
-        color="#0f1e3c"
+        color={COLOR}
         label="Pôle Patrimoine"
         title="Conseil et gestion de patrimoine en France"
         description="EPIC accompagne les particuliers dans la gestion, l'optimisation et la sécurisation de leur patrimoine en France, avec une approche personnalisée et adaptée à vos objectifs."
@@ -74,7 +74,7 @@ export default function PatrimoinePage() {
       </section>
 
       {/* Services */}
-      <section className="py-20 bg-[#0f1e3c]">
+      <section className="py-20 text-white" style={{ backgroundColor: COLOR }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nos services Patrimoine</h2>
@@ -94,7 +94,7 @@ export default function PatrimoinePage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-12 text-center">
             <div className="w-12 h-0.5 bg-[#C9A96E] mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c]">Comment ça marche ?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0f1e3c]">Comment ça marche ?</h2>
           </div>
           <div className="flex justify-center">
             <ProcessSteps steps={steps} color={COLOR} />
@@ -121,11 +121,11 @@ export default function PatrimoinePage() {
       />
 
       {/* CTA international */}
-      <section className="py-20 bg-[#0f1e3c] text-white">
+      <section className="py-20 text-white" style={{ backgroundColor: COLOR }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Investir en France</h2>
           <p className="text-white/75 mb-8 leading-relaxed">
-            Vous êtes un investisseur international souhaitant structurer et optimiser votre patrimoine en France ? EPIC vous accompagne dans la mise en place de stratégies adaptées au cadre fiscal français, ainsi que dans la gestion et le développement de vos actifs.
+            Vous êtes un investisseur international souhaitant structurer et optimiser votre patrimoine en France ? EPIC vous accompagne dans la mise en place de stratégies adaptées au cadre fiscal français, ainsi que dans la gestion et le développement de vos actifs.
           </p>
           <Link href="/contact" className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-bold px-8 py-3 rounded hover:bg-[#e8d4a8] transition-colors">
             Commencez votre projet →
