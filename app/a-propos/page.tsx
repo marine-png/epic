@@ -1,67 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import CompassTeam from '../components/CompassTeam';
 
 export const metadata: Metadata = {
   title: 'EPIC – Découvrez notre équipe',
   description: "Découvrez l'équipe EPIC, notre philosophie et notre approche pour accompagner vos projets d'entreprise, patrimoine et immobilier en France.",
 };
-
-const team = [
-  {
-    initial: 'P',
-    name: 'Pieter',
-    role: 'Expert Entreprise – Acquisition & Développement',
-    color: '#1B3A6B',
-    bio: 'Franco-belge, 55 ans, ingénieur commercial de formation.',
-    details: [
-      "9 ans dans les services financiers d'une entreprise de construction cotée",
-      "6 ans dirigeant d'un hôtel en France",
-      "9 ans dirigeant-fondateur d'une entreprise de distribution de bières spéciales",
-      "4 ans de conseil aux chefs d'entreprise",
-    ],
-    specialites: 'Acquisition · Business plan · Financement · Stratégie & organisation',
-    pole: 'Entreprise',
-    poleColor: '#1B3A6B',
-  },
-  {
-    initial: 'N',
-    name: 'Nicolas',
-    role: 'Expert Entreprise – Structuration & Stratégie',
-    color: '#1B3A6B',
-    bio: 'Spécialisé dans l\'accompagnement des entrepreneurs, Nicolas intervient sur la structuration juridique, la stratégie et le développement des projets.',
-    specialites: 'Structuration juridique · Stratégie · Développement',
-    pole: 'Entreprise',
-    poleColor: '#1B3A6B',
-  },
-  {
-    initial: 'G',
-    name: 'Griet',
-    role: 'Experte Patrimoine – Gestion patrimoniale & Fiscalité',
-    color: '#2D6A4F',
-    bio: 'Spécialiste en gestion patrimoniale et optimisation fiscale.',
-    details: [
-      "Accompagnement des particuliers et investisseurs pour sécuriser et valoriser leur patrimoine",
-      "Expertise en transmission et succession, structuration de portefeuille",
-    ],
-    specialites: 'Optimisation fiscale · Structuration patrimoniale · Investissements',
-    pole: 'Patrimoine',
-    poleColor: '#2D6A4F',
-  },
-  {
-    initial: 'M',
-    name: 'Marine',
-    role: 'Experte Immobilier',
-    color: '#C9601A',
-    bio: 'Spécialiste de l\'immobilier professionnel et de l\'investissement immobilier privé.',
-    details: [
-      "Recherche et acquisition de locaux commerciaux et fonds de commerce",
-      "Accompagnement pour investisseurs nationaux et internationaux",
-    ],
-    specialites: 'Immobilier professionnel · Investissement immobilier · Négociation',
-    pole: 'Immobilier',
-    poleColor: '#C9601A',
-  },
-];
 
 const valeurs = [
   { icon: '🤝', title: 'Proximité', desc: 'Nous sommes à vos côtés à chaque étape.' },
@@ -75,8 +19,8 @@ export default function AProposPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-[#0f1e3c] text-white">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="pt-32 pb-20 bg-[#0f1e3c] text-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
           <span className="inline-block text-xs font-semibold uppercase tracking-[0.25em] bg-white/10 px-3 py-1 rounded mb-6 text-[#C9A96E]">Notre équipe</span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Rencontrez l&apos;équipe EPIC</h1>
           <p className="text-xl text-[#C9A96E] font-medium mb-6">Notre projet, c&apos;est votre réussite.</p>
@@ -120,44 +64,14 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Équipe */}
+      {/* Équipe — Compass interactive */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c] mb-4">Notre équipe</h2>
             <div className="w-16 h-1 bg-[#C9A96E] mx-auto" />
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {team.map((member) => (
-              <div key={member.name} className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                <div className="flex items-start gap-5 mb-5">
-                  <div className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-2xl flex-shrink-0" style={{ backgroundColor: member.color }}>
-                    {member.initial}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-[#0f1e3c]">{member.name}</h3>
-                    <p className="text-sm font-medium" style={{ color: member.color }}>{member.role}</p>
-                    <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-full text-white" style={{ backgroundColor: member.poleColor }}>
-                      {member.pole}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4">{member.bio}</p>
-                {member.details && (
-                  <ul className="space-y-1 mb-4">
-                    {member.details.map((d) => (
-                      <li key={d} className="flex items-start gap-2 text-sm text-gray-500">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: member.color }} />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <p className="text-xs font-semibold border-t border-gray-200 pt-3" style={{ color: member.color }}>{member.specialites}</p>
-              </div>
-            ))}
-          </div>
+          <CompassTeam />
         </div>
       </section>
 
