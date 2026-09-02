@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Griet = North (P), Nicolas = East (I), Marine = South (C), Pieter = West (E)
 const MEMBERS = [
   {
     id: 'griet', initial: 'G', name: 'Griet', color: '#2D6A4F',
@@ -13,14 +12,14 @@ const MEMBERS = [
       "Expertise en transmission et succession, structuration de portefeuille",
     ],
     tags: 'Optimisation fiscale · Structuration patrimoniale · Investissements',
-    dir: 'north' as const, compassLetter: 'P',
+    dir: 'north' as const,
   },
   {
     id: 'nicolas', initial: 'N', name: 'Nicolas', color: '#1B3A6B',
     role: 'Expert Entreprise – Structuration & Stratégie', pole: 'Entreprise',
     bio: "Spécialisé dans l'accompagnement des entrepreneurs, Nicolas intervient sur la structuration juridique, la stratégie et le développement des projets avec une approche personnalisée.",
     tags: 'Structuration · Stratégie · Développement',
-    dir: 'east' as const, compassLetter: 'I',
+    dir: 'east' as const,
   },
   {
     id: 'marine', initial: 'M', name: 'Marine', color: '#C9601A',
@@ -31,7 +30,7 @@ const MEMBERS = [
       "Accompagnement pour investisseurs nationaux et internationaux",
     ],
     tags: 'Immobilier professionnel · Investissement immobilier · Négociation',
-    dir: 'south' as const, compassLetter: 'C',
+    dir: 'south' as const,
   },
   {
     id: 'pieter', initial: 'P', name: 'Pieter', color: '#1B3A6B',
@@ -44,13 +43,12 @@ const MEMBERS = [
       "4 ans de conseil aux chefs d'entreprise",
     ],
     tags: 'Acquisition · Business plan · Financement · Stratégie',
-    dir: 'west' as const, compassLetter: 'E',
+    dir: 'west' as const,
   },
 ];
 
 type Dir = 'north' | 'east' | 'south' | 'west';
 
-// Compass center is 120px (radius 60). Lines start at 60px from center (240).
 const LINE_COORDS: Record<Dir, { x1: number; y1: number; x2: number; y2: number }> = {
   north: { x1: 240, y1: 180, x2: 240, y2: 68 },
   south: { x1: 240, y1: 300, x2: 240, y2: 412 },
@@ -65,21 +63,20 @@ const POS_STYLE: Record<Dir, React.CSSProperties> = {
   west:  { position: 'absolute', left: 0,   top: '50%',  transform: 'translateY(-50%)' },
 };
 
-// Full EPIC compass logo (same as SectionBanner), rendered on dark navy bg
-function CompassLogo({ activeLetter }: { activeLetter: string | null }) {
-  const lo = (l: string) => l === activeLetter ? 1 : 0.15;
-  const ao = (l: string) => l === activeLetter ? 1 : 0.18;
+// Compass logo on white: navy elements replacing white, no letters
+function CompassLogo() {
+  const N = '#1B3A6B';
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -8 210 216" width="100%" height="100%">
       {/* Outer dashed ring */}
-      <circle cx="100" cy="100" r="90" fill="none" stroke="white" strokeWidth="1" strokeDasharray="5 4" opacity="0.15"/>
+      <circle cx="100" cy="100" r="90" fill="none" stroke={N} strokeWidth="1" strokeDasharray="5 4" opacity="0.18"/>
       {/* Inner rings */}
-      <circle cx="100" cy="100" r="78" fill="none" stroke="white" strokeWidth="2" opacity="0.2"/>
-      <circle cx="100" cy="100" r="68" fill="none" stroke="white" strokeWidth="1" opacity="0.1"/>
-      {/* Fill */}
-      <circle cx="100" cy="100" r="63" fill="rgba(0,0,0,0.15)"/>
+      <circle cx="100" cy="100" r="78" fill="none" stroke={N} strokeWidth="2" opacity="0.22"/>
+      <circle cx="100" cy="100" r="68" fill="none" stroke={N} strokeWidth="1" opacity="0.12"/>
+      {/* Subtle fill */}
+      <circle cx="100" cy="100" r="63" fill="rgba(27,58,107,0.04)"/>
       {/* Sun rays */}
-      <g stroke="white" strokeWidth="1" opacity="0.25">
+      <g stroke={N} strokeWidth="1" opacity="0.22">
         <line x1="100" y1="55" x2="100" y2="42"/>
         <line x1="115" y1="57" x2="121" y2="45"/>
         <line x1="128" y1="64" x2="137" y2="55"/>
@@ -89,24 +86,16 @@ function CompassLogo({ activeLetter }: { activeLetter: string | null }) {
         <line x1="64"  y1="76" x2="52"  y2="70"/>
       </g>
       {/* Sun */}
-      <circle cx="100" cy="75" r="16" fill="none" stroke="white" strokeWidth="1" opacity="0.3"/>
+      <circle cx="100" cy="75" r="16" fill="none" stroke={N} strokeWidth="1" opacity="0.25"/>
       {/* Mountains */}
-      <polygon points="68,135 100,80 132,135" fill="white" opacity="0.25"/>
-      <polygon points="100,135 125,95 150,135" fill="white" opacity="0.15"/>
-      <polygon points="50,135 72,105 92,135" fill="white" opacity="0.1"/>
-      {/* North arrow — P */}
-      <polygon points="100,10 93,32 107,32" fill="#C9A96E" opacity={ao('P')}/>
-      {/* South arrow — C */}
-      <polygon points="100,190 93,168 107,168" fill="#C9A96E" opacity={ao('C')}/>
-      {/* West arrow — E */}
-      <polygon points="10,100 32,93 32,107" fill="#C9A96E" opacity={ao('E')}/>
-      {/* East arrow — I */}
-      <polygon points="190,100 168,93 168,107" fill="#C9A96E" opacity={ao('I')}/>
-      {/* Labels */}
-      <text x="100" y="8"   textAnchor="middle" fontFamily="serif" fontSize={activeLetter==='P'?14:10} fontWeight="bold" fill="white" opacity={lo('P')}>P</text>
-      <text x="100" y="199" textAnchor="middle" fontFamily="serif" fontSize={activeLetter==='C'?14:10} fontWeight="bold" fill="white" opacity={lo('C')}>C</text>
-      <text x="7"   y="104" textAnchor="middle" fontFamily="serif" fontSize={activeLetter==='E'?14:10} fontWeight="bold" fill="white" opacity={lo('E')}>E</text>
-      <text x="193" y="104" textAnchor="middle" fontFamily="serif" fontSize={activeLetter==='I'?14:10} fontWeight="bold" fill="white" opacity={lo('I')}>I</text>
+      <polygon points="68,135 100,80 132,135" fill={N} opacity="0.22"/>
+      <polygon points="100,135 125,95 150,135" fill={N} opacity="0.14"/>
+      <polygon points="50,135 72,105 92,135" fill={N} opacity="0.09"/>
+      {/* Arrows in gold */}
+      <polygon points="100,10 93,32 107,32"   fill="#C9A96E" opacity="0.7"/>
+      <polygon points="100,190 93,168 107,168" fill="#C9A96E" opacity="0.7"/>
+      <polygon points="10,100 32,93 32,107"   fill="#C9A96E" opacity="0.7"/>
+      <polygon points="190,100 168,93 168,107" fill="#C9A96E" opacity="0.7"/>
     </svg>
   );
 }
@@ -135,12 +124,12 @@ export default function CompassTeam() {
           })}
         </svg>
 
-        {/* Center — full EPIC compass logo on dark navy */}
+        {/* Center — full logo, no background */}
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden shadow-2xl"
-          style={{ width: 120, height: 120, backgroundColor: '#1B3A6B' }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{ width: 140, height: 140 }}
         >
-          <CompassLogo activeLetter={activeMember?.compassLetter ?? null} />
+          <CompassLogo />
         </div>
 
         {/* Member avatars */}
@@ -200,9 +189,9 @@ export default function CompassTeam() {
                 </div>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">{activeMember.bio}</p>
-              {activeMember.details && (
+              {'details' in activeMember && activeMember.details && (
                 <ul className="space-y-1.5 mb-5">
-                  {activeMember.details.map(d => (
+                  {(activeMember.details as string[]).map(d => (
                     <li key={d} className="flex items-start gap-2 text-sm text-gray-500">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: activeMember.color }} />
                       {d}
