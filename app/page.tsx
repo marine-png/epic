@@ -163,47 +163,71 @@ export default function Home() {
           <div className="w-16 h-1 bg-[#C9A96E] mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-[#0f1e3c] uppercase mb-14">Nos domaines d&apos;expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {poles.map((pole) => (
-              <Link
+            {poles.map((pole, idx) => (
+              <motion.div
                 key={pole.href}
-                href={pole.href}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
               >
-                {/* Bande colorée en haut */}
-                <div className="h-1.5" style={{ backgroundColor: pole.color }} />
+                <Link
+                  href={pole.href}
+                  className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-transparent hover:shadow-xl transition-all duration-300 flex flex-col relative h-full"
+                >
+                  {/* Numéro décoratif */}
+                  <span
+                    className="absolute top-3 right-5 text-8xl font-bold select-none pointer-events-none leading-none"
+                    style={{ color: pole.color, opacity: 0.05 }}
+                  >
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
 
-                <div className="p-8 flex flex-col flex-1">
-                  {/* Icône */}
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ backgroundColor: pole.lightColor }}>
-                    <pole.Icon size={26} style={{ color: pole.color }} strokeWidth={1.5} />
-                  </div>
+                  {/* Bande colorée en haut */}
+                  <div className="h-[3px]" style={{ backgroundColor: pole.color }} />
 
-                  {/* Titre */}
-                  <h3 className="text-2xl font-bold mb-3" style={{ color: pole.color }}>{pole.label}</h3>
+                  <div className="p-8 flex flex-col flex-1">
+                    {/* Icône */}
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: pole.lightColor }}
+                    >
+                      <pole.Icon size={26} style={{ color: pole.color }} strokeWidth={1.5} />
+                    </div>
 
-                  {/* Séparateur */}
-                  <div className="w-10 h-0.5 mb-6" style={{ backgroundColor: pole.color + '50' }} />
+                    {/* Titre */}
+                    <h3 className="text-2xl font-bold mb-3" style={{ color: pole.color }}>{pole.label}</h3>
 
-                  {/* Services checklist */}
-                  <div className="flex flex-col gap-3 flex-1">
-                    {pole.services.map((s) => (
-                      <div key={s} className="flex items-start gap-3">
-                        <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: pole.lightColor }}>
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                            <path d="M1.5 5L4 7.5L8.5 2.5" stroke={pole.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
+                    {/* Séparateur */}
+                    <div className="w-10 h-0.5 mb-6" style={{ backgroundColor: pole.color + '50' }} />
+
+                    {/* Services checklist */}
+                    <div className="flex flex-col gap-3 flex-1">
+                      {pole.services.map((s) => (
+                        <div key={s} className="flex items-start gap-3">
+                          <div className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: pole.lightColor }}>
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                              <path d="M1.5 5L4 7.5L8.5 2.5" stroke={pole.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <span className="text-sm text-gray-600 leading-snug">{s}</span>
                         </div>
-                        <span className="text-sm text-gray-600 leading-snug">{s}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <div className="mt-8 flex items-center font-semibold text-sm gap-2 group-hover:gap-3 transition-all duration-200" style={{ color: pole.color }}>
+                      En savoir plus <span>→</span>
+                    </div>
                   </div>
 
-                  {/* CTA */}
-                  <div className="mt-8 flex items-center font-semibold text-sm gap-2 group-hover:gap-3 transition-all duration-200" style={{ color: pole.color }}>
-                    En savoir plus <span>→</span>
-                  </div>
-                </div>
-              </Link>
+                  {/* Gradient subtil en bas au hover */}
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-b-2xl"
+                    style={{ background: `linear-gradient(to top, ${pole.color}10, transparent)` }}
+                  />
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
