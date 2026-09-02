@@ -55,6 +55,7 @@ export default function PatrimoinePage() {
         title="Conseil et gestion de patrimoine en France"
         description="EPIC accompagne les particuliers dans la gestion, l'optimisation et la sécurisation de leur patrimoine en France, avec une approche personnalisée et adaptée à vos objectifs."
         cta={{ label: "Nous contacter pour votre projet patrimonial", href: "/contact" }}
+        activeLetter="P"
       />
 
       {/* Note exclusivité */}
