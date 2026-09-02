@@ -50,12 +50,12 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-[#0f1e3c] text-center">
+      {/* CTA — fond doré */}
+      <section className="py-16 text-center" style={{ backgroundColor: '#C9A96E' }}>
         <div className="max-w-xl mx-auto px-6">
-          <h2 className="text-2xl font-bold text-white mb-4">Parlons de votre projet</h2>
-          <p className="text-white/60 mb-8">Nous serons ravis d&apos;échanger avec vous et de vous accompagner dans vos projets en France.</p>
-          <Link href="/contact" className="inline-block bg-[#C9A96E] text-[#0f1e3c] font-semibold px-8 py-3 rounded hover:bg-[#e8d4a8] transition-colors">
+          <h2 className="text-2xl font-bold text-[#0f1e3c] mb-4">Parlons de votre projet</h2>
+          <p className="text-[#0f1e3c]/70 mb-8">Nous serons ravis d&apos;échanger avec vous et de vous accompagner dans vos projets en France.</p>
+          <Link href="/contact" className="inline-block bg-[#0f1e3c] text-white font-semibold px-8 py-3 rounded hover:bg-[#1a2f54] transition-colors">
             Nous contacter →
           </Link>
         </div>
